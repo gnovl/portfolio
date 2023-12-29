@@ -11,7 +11,7 @@ function App() {
 
   return (
     <I18nextProvider i18n={i18n}>
-    <BrowserRouter>
+    <BrowserRouter basename='/portfolio'>
       <div>
       <LanguageSwitcher />
         <Routes>
