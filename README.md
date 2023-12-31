@@ -27,6 +27,10 @@ Welcome to my personal portfolio! 🚀 This space serves as a record of my journ
 - **Translations**: Supporting multiple languages using i18next React.
 - **Email Handling**: Seamless communication with users using EmailJS.
 
+## Live Demo
+
+Visit my portfolio live on GitHub Pages: [Personal Portfolio](https://gnovl.github.io/portfolio/)
+
 ## Getting Started
 
 1. Clone the repository:
