@@ -35,9 +35,9 @@ Visit my portfolio live on GitHub Pages: [Personal Portfolio](https://gnovl.gith
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/gnovl/portfolio.git
-   ```
+```bash
+git clone https://github.com/gnovl/portfolio.git
+```
 
 2. Navigate to the project directory:
 
