@@ -35,15 +35,21 @@ Welcome to my personal portfolio! 🚀 This space serves as a record of my journ
    git clone https://github.com/gnovl/portfolio.git
    ```
 
-Install dependencies:
-
-````bash
-Copy code
-npm install
-Run the development server:
+2. Navigate to the project directory:
 
 ```bash
-Copy code
-npm start
-Explore and enjoy!
-````
+cd your-portfolio
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+
+```
+
+4. Run the Vite development server:
+
+```bash
+npm run dev
+```
