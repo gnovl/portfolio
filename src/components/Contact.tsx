@@ -220,7 +220,7 @@ const Contact = () => {
             <div>
               <ReCAPTCHA
                 ref={captcha}
-                sitekey="6Lc0HKYnAAAAAIfndxvBYjIZWb3EX6ZZPXldvYi9"
+                sitekey="6LeFpEEpAAAAAKHAcf--_tF4XU3lyDCtTZ5KRqoA"
                 onChange={onCaptchaChange}
                 size="compact" // Use the "compact" size for small screens
               />
