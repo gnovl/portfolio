@@ -45,14 +45,7 @@ git clone https://github.com/gnovl/portfolio.git
 cd your-portfolio
 ```
 
-3. Install dependencies:
-
-```bash
-npm install
-
-```
-
-4. Run the Vite development server:
+3. Run the Vite development server:
 
 ```bash
 npm run dev
