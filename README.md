@@ -42,7 +42,7 @@ git clone https://github.com/gnovl/portfolio.git
 2. Navigate to the project directory:
 
 ```bash
-cd your-portfolio
+cd portfolio-folder
 ```
 
 3. Run the Vite development server:
