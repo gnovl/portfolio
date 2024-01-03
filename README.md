@@ -7,6 +7,8 @@
 [![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react-hook-form.com/)
 [![EmailJS](https://img.shields.io/badge/EmailJS-0DB7E4?style=for-the-badge&logo=email&logoColor=white)](https://www.emailjs.com/)
+![GitHub repo size](https://img.shields.io/github/repo-size/gnovl/portfolio?color=%232750F8%20)
+
 
 Welcome to my personal portfolio! 🚀 This space serves as a record of my journey and progress as a web developer.
 
