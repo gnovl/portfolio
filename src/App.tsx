@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import { ScrollToTop } from 'react-simple-scroll-up';
@@ -16,7 +16,8 @@ function App() {
       <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/not-found" />} />
+          <Route path="/not-found" element={<NotFound />} />
         </Routes>
         <ScrollToTop symbol='☝️' offsetTop={500} />
       </div>

@@ -13,13 +13,13 @@ const NotFound: React.FC = () => {
       <div className='bg-white border rounded-lg shadow-xl p-2 lg:p-6 min-h-screen '>
 
       <p>
-      💀 What are you doing!?
+      💀 404 NOT FOUND
       </p>
       <p className='mb-4'>
-      <span>🧛‍♂️ EXIT ⬇️ </span>
+      <span>EXIT ⬇️ </span>
       </p>
       <p>
-      <span className=' hover:text-blue-500'><a href="/portfolio/">🔗 Back to Home</a></span>
+      <span className=' hover:text-blue-500'><a href="/portfolio/">🏠 Back to Home</a></span>
       </p>  
       </div>
     </div>
