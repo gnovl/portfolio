@@ -19,7 +19,7 @@ const NotFound: React.FC = () => {
       <span>🧛‍♂️ EXIT ⬇️ </span>
       </p>
       <p>
-      <span className=' hover:text-blue-500'><a href="/">🔗 Back to Home</a></span>
+      <span className=' hover:text-blue-500'><a href="/portfolio/">🔗 Back to Home</a></span>
       </p>  
       </div>
     </div>
