@@ -8,22 +8,22 @@
     },
     "home": {
       "paragraphs": {
-        "header":"GINO VARELA",
-        "header2": "Desarrollador web FullStack 🤖",
-        "paragraph1": "👋 Bienvenido a mi portafolio, tu guía amigable a través del siempre cambiante terreno tecnológico. A diferencia de las plataformas tecnológicas tradicionales, este es un espacio personal donde extiendo una mano a compañeros entusiastas de la tecnología como tú. Comprendo los desafíos de mantenerte actualizado en este campo dinámico, y mi compromiso es sencillo: ayudarte en tus objetivos.",
+        "header": "GINO VARELA",
+        "header2": "Desarrollador web FullStack",
+        "paragraph1": "👋 Bienvenido a mi portafolio. A diferencia de las plataformas tecnológicas tradicionales, este es un espacio personal donde extiendo una mano a compañeros entusiastas de la tecnología como tú. Comprendo los desafíos de mantenerte actualizado en este campo dinámico, y mi compromiso es sencillo: ayudarte en tus objetivos.",
         "paragraph2": "Esta plataforma funciona como una presentación de mis logros y una herramienta valiosa para la comunidad que persigue sus propios proyectos tecnológicos. Va más allá de mi entusiasmo por la tecnología; se trata de nutrir tu éxito en el ámbito tecnológico. Únete a mí para acceder a ideas valiosas y asistencia sólida, equipándote para superar desafíos y alcanzar tus objetivos en este campo en constante evolución.",
         "paragraph3": "Mi portafolio va más allá de simplemente mostrar mis logros; sirve como un testimonio del potencial sin explotar que hay en ti."
       },
       "about": {
         "title": "Sobre mí",
-        "paragraph1": "👨‍💻 Título de licenciatura en desarrollo web, con especialización en desarrollo web, apasionado por las tecnologías emergentes y las mejores prácticas. Experimentado en el desarrollo de proyectos en equipo e individuales. También realizo trabajos freelance adaptados a las necesidades del cliente. Mi objetivo principal es seguir creciendo profesionalmente en el campo de la tecnología y mantenerme actualizado con las últimas tecnologías de hoy en día.",
+        "paragraph1": "Especialización en desarrollo web, apasionado por las tecnologías emergentes y las mejores prácticas. Experimentado en el desarrollo de proyectos en equipo e individuales. También realizo trabajos freelance adaptados a las necesidades del cliente. Mi objetivo principal es seguir creciendo profesionalmente en el campo de la tecnología y mantenerme actualizado con las últimas tecnologías de hoy en día.",
         "paragraph2": "Como un entusiasta desarrollador web, mi aventura tecnológica no conoce límites.",
         "paragraph3": "🛠️ Herramientas que utilizo en mi día a día: HTML5, CSS3, JavaScript, React, Node.js y más allá. Mi pasión impulsa mi deseo de crecimiento constante. Mi portafolio muestra aplicaciones web dinámicas que no solo son amigables para el usuario, sino también responsivas."
       },
       "skills": {
         "paragraph1": "🔥 Estoy decidido a avanzar en el campo de la tecnología de la información, con el objetivo de ampliar mis conocimientos, acumular una experiencia valiosa y compartir activamente mi experiencia. Esta ambición subraya mi compromiso de mantenerme a la vanguardia de la dinámica industria de la tecnología de la información. Prospero en el aprendizaje continuo, la mejora de habilidades y en hacer contribuciones impactantes a proyectos y equipos.",
         "paragraph2": "En nuestra rápida y evolucionante era digital, los desarrolladores web son arquitectos del ámbito en línea. Con cada línea de código, creamos soluciones innovadoras, elevamos experiencias de usuario y impulsamos la transformación digital. A medida que avanza la tecnología, nuestro papel sigue siendo fundamental, asegurando la funcionalidad, estética y accesibilidad de la web para usuarios en todo el mundo."
-    },
+      },
       "projects": {
         "title": "Proyectos",
         "paragraph1": "Aquí estaré mostrando mis proyectos actuales en desarrollo, así como mis trabajos finalizados, ofreciendo una visión integral de mis habilidades y experiencia. Explora la diversa gama de proyectos que he emprendido para presenciar mi crecimiento y capacidades de primera mano. Ya sea que estés interesado en mis esfuerzos más recientes o logros pasados, encontrarás una colección que refleja mi continuo viaje en el desarrollo de software y web.",
@@ -31,7 +31,7 @@
         "project1": {
           "title": "Averías Hogar",
           "status": "Terminado",
-          "technologies": "React, Tailwind, Emailjs, CSR",
+          "technologies": "Next.js, TypeScript, Google reCAPTCHA, librerías React",
           "description": "Este proyecto implicó la creación de un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar."
         },
         "project2": {
@@ -45,44 +45,43 @@
           "status": "Próximamente",
           "technologies": "",
           "description": "Mantente atento a emocionantes proyectos, innovaciones y más. Estoy comprometido a seguir creciendo como profesional."
-      }
-      },
-       "contact": {
-          "title": "✉️ Ponte en contacto",
-          "labels": {
-            "name": "Nombre",
-            "email": "Correo electrónico",
-            "message": "Mensaje"
-          },
-          "placeholders": {
-            "name": "Tu nombre...",
-            "email": "Tu correo electrónico...",
-            "message": "Mensaje..."
-          },
-          "validation": {
-            "name": {
-              "required": "Por favor, completa este campo.",
-              "maxLength": "Máximo 10 caracteres.",
-              "pattern": "Carácter no válido."
-            },
-            "email": {
-              "required": "Por favor, completa este campo.",
-              "validChars": "Solo letras, números, '@' y '.' están permitidos.",
-              "validEmail": "Por favor, introduce un formato de correo electrónico válido.",
-              "maxLength": "Máximo 30 caracteres."
-            },
-            "message": {
-              "required": "Por favor, completa este campo.",
-              "pattern": "Solo se permiten letras y números.",
-              "maxLength": "Máximo 300 caracteres."
-            }
-          },
-          "button": {
-            "send": "Enviar"
-          },
-          "successMessage": "¡Mensaje enviado exitosamente!"
         }
-      
+      },
+      "contact": {
+        "title": "Ponte en contacto",
+        "labels": {
+          "name": "Nombre",
+          "email": "Correo electrónico",
+          "message": "Mensaje"
+        },
+        "placeholders": {
+          "name": "Tu nombre...",
+          "email": "Tu correo electrónico...",
+          "message": "Mensaje..."
+        },
+        "validation": {
+          "name": {
+            "required": "Por favor, completa este campo.",
+            "maxLength": "Máximo 10 caracteres.",
+            "pattern": "Carácter no válido."
+          },
+          "email": {
+            "required": "Por favor, completa este campo.",
+            "validChars": "Solo letras, números, '@' y '.' están permitidos.",
+            "validEmail": "Por favor, introduce un formato de correo electrónico válido.",
+            "maxLength": "Máximo 30 caracteres."
+          },
+          "message": {
+            "required": "Por favor, completa este campo.",
+            "pattern": "Solo se permiten letras y números.",
+            "maxLength": "Máximo 300 caracteres."
+          }
+        },
+        "button": {
+          "send": "Enviar"
+        },
+        "successMessage": "¡Mensaje enviado exitosamente!"
+      }
     }
   }
 }

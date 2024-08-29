@@ -1,13 +1,12 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 interface Language {
   nativeName: string;
 }
 
 const lngs: Record<string, Language> = {
-  en: { nativeName: 'English' },
-  es: { nativeName: 'Español' },
-  fr: { nativeName: 'Française' },
+  en: { nativeName: "English" },
+  es: { nativeName: "Español" },
 };
 
 function LanguageSwitcher() {
@@ -18,11 +17,13 @@ function LanguageSwitcher() {
   };
 
   return (
-    <div className='flex space-x-3 bg-gray-300'>
+    <div className="flex space-x-3 bg-gray-300">
       {Object.keys(lngs).map((lng) => (
         <button
           key={lng}
-          style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }}
+          style={{
+            fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
+          }}
           type="button"
           onClick={() => changeLanguage(lng)}
         >

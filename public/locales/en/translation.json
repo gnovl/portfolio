@@ -1,87 +1,86 @@
 {
-    "translation": {
-      "navigation": {
-        "home": "Home",
-        "about": "About",
-        "projects": "Projects",
-        "contact": "Contact"
+  "translation": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "home": {
+      "paragraphs": {
+        "header": "GINO VARELA",
+        "header2": "FullStack Web Developer 🤖",
+        "paragraph1": "👋 Welcome to my portfolio, your friendly guide through the ever-evolving tech terrain. Unlike traditional tech platforms, this is a personal space where I extend a hand to fellow tech enthusiasts like you. I comprehend the challenges of staying current in this dynamic field, and my commitment is straightforward: to assist you in your pursuits.",
+        "paragraph2": "This platform functions as both a display of my accomplishments and a valuable tool for the community pursuing their own tech projects. It`s more than just my enthusiasm for technology, it`s about nurturing your success in the tech sphere. Join me to access precious insights and steadfast assistance, equipping you to overcome challenges and attain your objectives in this constantly evolving field.",
+        "paragraph3": "My portfolio goes beyond simply showcasing my accomplishments; it serves as a testament to the untapped potential within you."
       },
-      "home": {
-        "paragraphs": {
-          "header":"GINO VARELA",
-          "header2": "FullStack Web Developer 🤖",
-          "paragraph1": "👋 Welcome to my portfolio, your friendly guide through the ever-evolving tech terrain. Unlike traditional tech platforms, this is a personal space where I extend a hand to fellow tech enthusiasts like you. I comprehend the challenges of staying current in this dynamic field, and my commitment is straightforward: to assist you in your pursuits.",
-          "paragraph2": "This platform functions as both a display of my accomplishments and a valuable tool for the community pursuing their own tech projects. It`s more than just my enthusiasm for technology, it`s about nurturing your success in the tech sphere. Join me to access precious insights and steadfast assistance, equipping you to overcome challenges and attain your objectives in this constantly evolving field.",
-          "paragraph3": "My portfolio goes beyond simply showcasing my accomplishments; it serves as a testament to the untapped potential within you."
+      "about": {
+        "paragraph1": "👨‍💻 Bachelor's degree in web development, specializing in web development, passionate about emerging technologies and best practices. Experienced in team and individual project development. I also undertake freelance work tailored to the client's needs. My primary goal is to continue growing professionally in the technology field and stay updated with the latest technologies of today.",
+        "paragraph2": "As an enthusiastic web developer, my tech adventure knows no bounds.",
+        "paragraph3": "🛠️ Tools that I use in my day-to-day: HTML5, CSS3, JavaScript, React, Node.js, and beyond, my passion fuels my drive for constant growth. My portfolio showcases dynamic web applications that are not just user-friendly but also responsive."
+      },
+      "skills": {
+        "paragraph1": "🔥 I'm determined to advance in the IT field, aiming to broaden my knowledge, accumulate valuable experience, and actively share my expertise. This ambition underscores my commitment to staying at the forefront of the dynamic IT industry. I thrive on continuous learning, skill refinement, and making impactful contributions to projects and teams.",
+        "paragraph2": "In our rapidly evolving digital era, web developers are architects of the online realm. With each line of code, we craft innovative solutions, elevate user experiences, and drive digital transformation. As technology advances, our role remains pivotal, ensuring the web's functionality, aesthetics, and accessibility for users worldwide."
+      },
+      "projects": {
+        "paragraph1": "Here I will be showcasing my current under development projects as well as my finished works, offering a comprehensive overview of my skills and expertise. Explore the diverse range of projects I've undertaken to witness my growth and capabilities firsthand. Whether you're interested in my latest endeavors or past achievements, you'll find a collection that reflects my continuous journey in software and web development.",
+        "paragraph2": "🗃️ My projects",
+        "project1": {
+          "title": "Home Repairs solutions",
+          "status": "Completed",
+          "technologies": "Next.js, TypeScript, Google reCAPTCHA, React libraries",
+          "description": "This project involved the creation of a user-friendly website for a local company specializing in home repairs."
         },
-        "about": {
-            "paragraph1": "👨‍💻 Bachelor's degree in web development, specializing in web development, passionate about emerging technologies and best practices. Experienced in team and individual project development. I also undertake freelance work tailored to the client's needs. My primary goal is to continue growing professionally in the technology field and stay updated with the latest technologies of today.",
-            "paragraph2": "As an enthusiastic web developer, my tech adventure knows no bounds.",
-            "paragraph3": "🛠️ Tools that I use in my day-to-day: HTML5, CSS3, JavaScript, React, Node.js, and beyond, my passion fuels my drive for constant growth. My portfolio showcases dynamic web applications that are not just user-friendly but also responsive."
+        "project2": {
+          "title": "Snake Game",
+          "status": "Currently in development",
+          "technologies": "Java",
+          "description": "JavaScript-based Snake game, aimed at entertaining people of all ages, perfect for your leisure time."
         },
-        "skills": {
-            "paragraph1": "🔥 I'm determined to advance in the IT field, aiming to broaden my knowledge, accumulate valuable experience, and actively share my expertise. This ambition underscores my commitment to staying at the forefront of the dynamic IT industry. I thrive on continuous learning, skill refinement, and making impactful contributions to projects and teams.",
-            "paragraph2": "In our rapidly evolving digital era, web developers are architects of the online realm. With each line of code, we craft innovative solutions, elevate user experiences, and drive digital transformation. As technology advances, our role remains pivotal, ensuring the web's functionality, aesthetics, and accessibility for users worldwide."
+        "project3": {
+          "title": "Coming Soon",
+          "status": "Coming Soon",
+          "technologies": "",
+          "description": "Stay tuned for exciting projects, innovations, and more. I'm commited to continue growing as a professional."
+        }
+      },
+
+      "contact": {
+        "title": "✉️ Get in touch",
+        "labels": {
+          "name": "Name",
+          "email": "Email",
+          "message": "Message"
         },
-        "projects": {
-            "paragraph1": "Here I will be showcasing my current under development projects as well as my finished works, offering a comprehensive overview of my skills and expertise. Explore the diverse range of projects I've undertaken to witness my growth and capabilities firsthand. Whether you're interested in my latest endeavors or past achievements, you'll find a collection that reflects my continuous journey in software and web development.",
-            "paragraph2": "🗃️ My projects",
-            "project1": {
-              "title": "Home Repairs solutions",
-              "status": "Completed",
-              "technologies": "React, Tailwind, Emailjs, CSR",
-              "description": "This project involved the creation of a user-friendly website for a local company specializing in home repairs."
-            },
-            "project2": {
-              "title": "Snake Game",
-              "status": "Currently in development",
-              "technologies": "Java",
-              "description": "JavaScript-based Snake game, aimed at entertaining people of all ages, perfect for your leisure time."
-            },
-            "project3": {
-              "title": "Coming Soon",
-              "status": "Coming Soon",
-              "technologies": "",
-              "description": "Stay tuned for exciting projects, innovations, and more. I'm commited to continue growing as a professional."
-            }
+        "placeholders": {
+          "name": "Your name...",
+          "email": "Your email...",
+          "message": "Message..."
         },
-        
-"contact": {
-  "title": "✉️ Get in touch",
-  "labels": {
-  "name": "Name",
-  "email": "Email",
-  "message": "Message"
-  },
-  "placeholders": {
-  "name": "Your name...",
-  "email": "Your email...",
-  "message": "Message..."
-  },
-  "validation": {
-  "name": {
-  "required": "Please fill in this field.",
-  "maxLength": "Maximum 10 characters.",
-  "pattern": "Invalid character."
-  },
-  "email": {
-  "required": "Please fill in this field.",
-  "validChars": "Only letters, numbers, '@', and '.' are allowed.",
-  "validEmail": "Please enter a valid email format.",
-  "maxLength": "Maximum 30 characters."
-  },
-  "message": {
-  "required": "Please fill in this field.",
-  "pattern": "Only letters and numbers are allowed.",
-  "maxLength": "Maximum 300 characters."
-  }
-  },
-  "button": {
-  "send": "Send"
-  },
-  "successMessage": "Your message has been successfully submitted!"
-  } 
+        "validation": {
+          "name": {
+            "required": "Please fill in this field.",
+            "maxLength": "Maximum 10 characters.",
+            "pattern": "Invalid character."
+          },
+          "email": {
+            "required": "Please fill in this field.",
+            "validChars": "Only letters, numbers, '@', and '.' are allowed.",
+            "validEmail": "Please enter a valid email format.",
+            "maxLength": "Maximum 30 characters."
+          },
+          "message": {
+            "required": "Please fill in this field.",
+            "pattern": "Only letters and numbers are allowed.",
+            "maxLength": "Maximum 300 characters."
+          }
+        },
+        "button": {
+          "send": "Send"
+        },
+        "successMessage": "Your message has been successfully submitted!"
       }
     }
   }
-  
+}
