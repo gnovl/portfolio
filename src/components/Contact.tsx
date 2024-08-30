@@ -36,7 +36,7 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_1iwktvn",
+        "service_cm3fzmq",
         "template_wpsupg8",
         form.current!,
         "T9QxCDk1od-h1Pj9d"
