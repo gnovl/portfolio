@@ -15,10 +15,10 @@ const projectData = [
     hostingLink: "https://averiashogar.es/",
   },
   {
-    imageSrc: "./img/jsSnakeGame.jpg",
+    imageSrc: "./img/snake_game_python.png",
     title: "",
     status: "",
-    technologies: "Java",
+    technologies: "Python",
     description: "",
     githubLink: "",
     hostingLink: "",

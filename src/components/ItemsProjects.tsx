@@ -56,7 +56,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
   return (
     <li
-      className={`p-2 sm:p-4 flex items-start space-x-4 sm:space-x-4 border hover:border-black  ${customStyles}`}
+      className={`p-2 sm:p-4 flex items-start space-x-4 sm:space-x-4 border hover:border-black hover:bg-gray-100  ${customStyles}`}
     >
       <div className="w-24 h-24 sm:w-24 md:w-36 md:h-24 sm:h-24 flex-shrink-0 overflow-hidden rounded-lg">
         <img
