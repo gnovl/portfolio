@@ -35,8 +35,8 @@
         "project2": {
           "title": "Snake Game",
           "status": "Currently in development",
-          "technologies": "Java",
-          "description": "JavaScript-based Snake game, aimed at entertaining people of all ages, perfect for your leisure time."
+          "technologies": "Python",
+          "description": "Snake game in Python, aimed at entertaining people of all ages, perfect for your leisure time."
         },
         "project3": {
           "title": "Coming Soon",

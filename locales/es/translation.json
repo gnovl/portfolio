@@ -35,10 +35,10 @@
           "description": "Este proyecto implicó la creación de un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar."
         },
         "project2": {
-          "title": "Snake Juego",
+          "title": "Juego de Serpiente",
           "status": "En desarrollo",
-          "technologies": "Java",
-          "description": "Juego de serpiente basado en Java, tiene como objetivo entretener a personas de todas las edades, perfecto para tu tiempo libre."
+          "technologies": "Python",
+          "description": "Juego de serpiente basado en Python, tiene como objetivo entretener a personas de todas las edades, perfecto para tu tiempo libre."
         },
         "project3": {
           "title": "Próximamente",
