@@ -8,55 +8,91 @@
     },
     "home": {
       "paragraphs": {
+        "greeting": "Hey, I'm",
         "header": "GINO VARELA",
-        "header2": "FullStack Web Developer 🤖",
-        "paragraph1": "👋 Welcome to my portfolio, your friendly guide through the ever-evolving tech terrain. Unlike traditional tech platforms, this is a personal space where I extend a hand to fellow tech enthusiasts like you. I comprehend the challenges of staying current in this dynamic field, and my commitment is straightforward: to assist you in your pursuits.",
-        "paragraph2": "This platform functions as both a display of my accomplishments and a valuable tool for the community pursuing their own tech projects. It`s more than just my enthusiasm for technology, it`s about nurturing your success in the tech sphere. Join me to access precious insights and steadfast assistance, equipping you to overcome challenges and attain your objectives in this constantly evolving field.",
-        "paragraph3": "My portfolio goes beyond simply showcasing my accomplishments; it serves as a testament to the untapped potential within you."
+        "description": "A skilled web developer, focusing on backend development while crafting and managing websites and web applications to ensure the success of the entire product with finesse."
       },
       "about": {
-        "paragraph1": "👨‍💻 Bachelor's degree in web development, specializing in web development, passionate about emerging technologies and best practices. Experienced in team and individual project development. I also undertake freelance work tailored to the client's needs. My primary goal is to continue growing professionally in the technology field and stay updated with the latest technologies of today.",
-        "paragraph2": "As an enthusiastic web developer, my tech adventure knows no bounds.",
-        "paragraph3": "🛠️ Tools that I use in my day-to-day: HTML5, CSS3, JavaScript, React, Node.js, and beyond, my passion fuels my drive for constant growth. My portfolio showcases dynamic web applications that are not just user-friendly but also responsive."
-      },
-      "skills": {
-        "paragraph1": "🔥 I'm determined to advance in the IT field, aiming to broaden my knowledge, accumulate valuable experience, and actively share my expertise. This ambition underscores my commitment to staying at the forefront of the dynamic IT industry. I thrive on continuous learning, skill refinement, and making impactful contributions to projects and teams.",
-        "paragraph2": "In our rapidly evolving digital era, web developers are architects of the online realm. With each line of code, we craft innovative solutions, elevate user experiences, and drive digital transformation. As technology advances, our role remains pivotal, ensuring the web's functionality, aesthetics, and accessibility for users worldwide."
-      },
-      "projects": {
-        "paragraph1": "Here I will be showcasing my current under development projects as well as my finished works, offering a comprehensive overview of my skills and expertise. Explore the diverse range of projects I've undertaken to witness my growth and capabilities firsthand. Whether you're interested in my latest endeavors or past achievements, you'll find a collection that reflects my continuous journey in software and web development.",
-        "paragraph2": "🗃️ My projects",
-        "project1": {
-          "title": "Home Repairs solutions",
-          "status": "Completed",
-          "technologies": "Next.js, TypeScript, Google reCAPTCHA, React libraries",
-          "description": "This project involved the creation of a user-friendly website for a local company specializing in home repairs."
-        },
-        "project2": {
-          "title": "Snake Game",
-          "status": "Currently in development",
-          "technologies": "Python",
-          "description": "Snake game in Python, aimed at entertaining people of all ages, perfect for your leisure time."
-        },
-        "project3": {
-          "title": "Coming Soon",
-          "status": "Coming Soon",
-          "technologies": "",
-          "description": "Stay tuned for exciting projects, innovations, and more. I'm commited to continue growing as a professional."
+        "title": "About me",
+        "introduction": "Hello, stranger! My name is Gino Varela and I was born in Chile. I studied and obtained my Higher Technical Certificate in Web Application Development in Spain. Exploring the hidden mechanisms behind websites and applications has always fascinated me—how everything runs smoothly in the background. I'd say that my hobby is the same as my occupation - that is to develop web applications.",
+        "stack": {
+          "title": "My Stack",
+          "description": "When developing projects, I use different technologies and programming languages to ensure the product meets the highest standards and satisfies both functional requirements and design aspirations.",
+          "categories": {
+            "languages": "Programming Languages",
+            "frameworks": "Frameworks & Libraries",
+            "versionControl": "Version Control",
+            "developmentTools": "Development Tools",
+            "databases": "Databases",
+            "ai": "AI & Machine Learning"
+          }
         }
       },
-
+      "projects": {
+        "title": "Projects",
+        "items": {
+          "averiasHogar": {
+            "title": "Home Repairs Solutions",
+            "description": "A user-friendly website for a local company specializing in home repairs.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "Google reCAPTCHA",
+              "React libraries",
+              "MDX-based Blog",
+              "Tailwind CSS"
+            ]
+          },
+          "taskEzy": {
+            "title": "task-Ezy",
+            "description": "Simplify your daily workflow, increase productivity, and manage your tasks with ease.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Prisma",
+              "PostgreSQL",
+              "NextAuth.js"
+            ]
+          },
+          "dawProject": {
+            "title": "Final DAW Project",
+            "description": "This web application was developed as the final project for the Web Application Development course.",
+            "technologies": [
+              "PHP",
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "Bootstrap",
+              "MySQL"
+            ]
+          },
+          "portfolio": {
+            "title": "Personal Portfolio",
+            "description": "My personal portfolio showcasing my projects and skills.",
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Tailwind CSS",
+              "i18next",
+              "React Hook Form",
+              "EmailJS"
+            ]
+          }
+        }
+      },
       "contact": {
         "title": "✉️ Get in touch",
+        "message": "Write your message and I'll get in touch with you within the next business day.",
         "labels": {
           "name": "Name",
           "email": "Email",
           "message": "Message"
         },
         "placeholders": {
-          "name": "Your name...",
-          "email": "Your email...",
-          "message": "Message..."
+          "name": "John Doe",
+          "email": "example@example.com",
+          "message": "Seeking a React and Next.js specialist to contribute to a tailored development project..."
         },
         "validation": {
           "name": {
@@ -80,6 +116,11 @@
           "send": "Send"
         },
         "successMessage": "Your message has been successfully submitted!"
+      },
+      "footer": {
+        "description": "Full Stack Web Developer building digital experiences with modern technologies.",
+        "copyright": "All rights reserved.",
+        "builtWith": "Built with React + TypeScript + Tailwind CSS"
       }
     }
   }

@@ -8,47 +8,82 @@
     },
     "home": {
       "paragraphs": {
+        "greeting": "Hola, soy",
         "header": "GINO VARELA",
-        "header2": "Desarrollador web FullStack",
-        "paragraph1": "👋 Bienvenido a mi portafolio. A diferencia de las plataformas tecnológicas tradicionales, este es un espacio personal donde extiendo una mano a compañeros entusiastas de la tecnología como tú. Comprendo los desafíos de mantenerte actualizado en este campo dinámico, y mi compromiso es sencillo: ayudarte en tus objetivos.",
-        "paragraph2": "Esta plataforma funciona como una presentación de mis logros y una herramienta valiosa para la comunidad que persigue sus propios proyectos tecnológicos. Va más allá de mi entusiasmo por la tecnología; se trata de nutrir tu éxito en el ámbito tecnológico. Únete a mí para acceder a ideas valiosas y asistencia sólida, equipándote para superar desafíos y alcanzar tus objetivos en este campo en constante evolución.",
-        "paragraph3": "Mi portafolio va más allá de simplemente mostrar mis logros; sirve como un testimonio del potencial sin explotar que hay en ti."
+        "description": "Un desarrollador web especializado, enfocado en el desarrollo backend mientras creo y gestiono sitios y aplicaciones web para garantizar el éxito del producto completo con precisión."
       },
       "about": {
         "title": "Sobre mí",
-        "paragraph1": "Especialización en desarrollo web, apasionado por las tecnologías emergentes y las mejores prácticas. Experimentado en el desarrollo de proyectos en equipo e individuales. También realizo trabajos freelance adaptados a las necesidades del cliente. Mi objetivo principal es seguir creciendo profesionalmente en el campo de la tecnología y mantenerme actualizado con las últimas tecnologías de hoy en día.",
-        "paragraph2": "Como un entusiasta desarrollador web, mi aventura tecnológica no conoce límites.",
-        "paragraph3": "🛠️ Herramientas que utilizo en mi día a día: HTML5, CSS3, JavaScript, React, Node.js y más allá. Mi pasión impulsa mi deseo de crecimiento constante. Mi portafolio muestra aplicaciones web dinámicas que no solo son amigables para el usuario, sino también responsivas."
-      },
-      "skills": {
-        "paragraph1": "🔥 Estoy decidido a avanzar en el campo de la tecnología de la información, con el objetivo de ampliar mis conocimientos, acumular una experiencia valiosa y compartir activamente mi experiencia. Esta ambición subraya mi compromiso de mantenerme a la vanguardia de la dinámica industria de la tecnología de la información. Prospero en el aprendizaje continuo, la mejora de habilidades y en hacer contribuciones impactantes a proyectos y equipos.",
-        "paragraph2": "En nuestra rápida y evolucionante era digital, los desarrolladores web son arquitectos del ámbito en línea. Con cada línea de código, creamos soluciones innovadoras, elevamos experiencias de usuario y impulsamos la transformación digital. A medida que avanza la tecnología, nuestro papel sigue siendo fundamental, asegurando la funcionalidad, estética y accesibilidad de la web para usuarios en todo el mundo."
+        "introduction": "¡Hola, extraño! Mi nombre es Gino Varela y nací en Chile. Estudié y obtuve mi Título Superior en Desarrollo de Aplicaciones Web en España. Explorar los mecanismos ocultos detrás de los sitios web y las aplicaciones siempre me ha fascinado: cómo todo funciona sin problemas en segundo plano. Diría que mi hobby es el mismo que mi ocupación: desarrollar aplicaciones web.",
+        "stack": {
+          "title": "Mi Stack",
+          "description": "Al desarrollar proyectos, utilizo diferentes tecnologías y lenguajes de programación para asegurar que el producto cumpla con los más altos estándares y satisfaga tanto los requisitos funcionales como las aspiraciones de diseño.",
+          "categories": {
+            "languages": "Lenguajes de Programación",
+            "frameworks": "Frameworks y Librerías",
+            "versionControl": "Control de Versiones",
+            "developmentTools": "Herramientas de Desarrollo",
+            "databases": "Bases de Datos",
+            "ai": "IA y Machine Learning"
+          }
+        }
       },
       "projects": {
         "title": "Proyectos",
-        "paragraph1": "Aquí estaré mostrando mis proyectos actuales en desarrollo, así como mis trabajos finalizados, ofreciendo una visión integral de mis habilidades y experiencia. Explora la diversa gama de proyectos que he emprendido para presenciar mi crecimiento y capacidades de primera mano. Ya sea que estés interesado en mis esfuerzos más recientes o logros pasados, encontrarás una colección que refleja mi continuo viaje en el desarrollo de software y web.",
-        "paragraph2": "🗃️ Mis proyectos",
-        "project1": {
-          "title": "Averías Hogar",
-          "status": "Terminado",
-          "technologies": "Next.js, TypeScript, Google reCAPTCHA, librerías React",
-          "description": "Este proyecto implicó la creación de un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar."
-        },
-        "project2": {
-          "title": "Juego de Serpiente",
-          "status": "En desarrollo",
-          "technologies": "Python",
-          "description": "Juego de serpiente basado en Python, tiene como objetivo entretener a personas de todas las edades, perfecto para tu tiempo libre."
-        },
-        "project3": {
-          "title": "Próximamente",
-          "status": "Próximamente",
-          "technologies": "",
-          "description": "Mantente atento a emocionantes proyectos, innovaciones y más. Estoy comprometido a seguir creciendo como profesional."
+        "items": {
+          "averiasHogar": {
+            "title": "Averías Hogar",
+            "description": "Un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "Google reCAPTCHA",
+              "Librerías React",
+              "Blog basado en MDX",
+              "Tailwind CSS"
+            ]
+          },
+          "taskEzy": {
+            "title": "task-Ezy",
+            "description": "Simplifica tu flujo de trabajo diario, aumenta la productividad y gestiona tus tareas con facilidad.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Prisma",
+              "PostgreSQL",
+              "NextAuth.js"
+            ]
+          },
+          "dawProject": {
+            "title": "Proyecto final DAW",
+            "description": "Esta aplicación web fue desarrollada como proyecto final para el curso de Desarrollo de Aplicaciones Web.",
+            "technologies": [
+              "PHP",
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "Bootstrap",
+              "MySQL"
+            ]
+          },
+          "portfolio": {
+            "title": "Portafolio personal",
+            "description": "Mi portafolio personal que muestra mis proyectos y habilidades.",
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Tailwind CSS",
+              "i18next",
+              "React Hook Form",
+              "EmailJS"
+            ]
+          }
         }
       },
       "contact": {
         "title": "Ponte en contacto",
+        "message": "Escribe tu mensaje y me pondré en contacto contigo en el siguiente día hábil.",
         "labels": {
           "name": "Nombre",
           "email": "Correo electrónico",
@@ -57,7 +92,7 @@
         "placeholders": {
           "name": "Tu nombre...",
           "email": "Tu correo electrónico...",
-          "message": "Mensaje..."
+          "message": "Buscamos un desarrollador de software competente con habilidades en React y Next.js para un proyecto específico..."
         },
         "validation": {
           "name": {
@@ -81,6 +116,11 @@
           "send": "Enviar"
         },
         "successMessage": "¡Mensaje enviado exitosamente!"
+      },
+      "footer": {
+        "description": "Desarrollador Web Full Stack creando experiencias digitales con tecnologías modernas.",
+        "copyright": "Todos los derechos reservados.",
+        "builtWith": "Construido con React + TypeScript + Tailwind CSS"
       }
     }
   }

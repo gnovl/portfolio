@@ -1,27 +1,43 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaHome, FaExclamationTriangle } from "react-icons/fa";
 
 const NotFound: React.FC = () => {
   return (
-    <div className="bg-gray-100 flex flex-col justify-center items-center ">
-    <div className="md:mx-auto text-center lg:pt-4 p-4 w-full lg:w-full pt-20 max-w-6xl ">
-    <div className="border-gray-400 border-t my-2"></div>
-    <div className="bg-customBGHeader text-customColorHeader border rounded-md flex items-center justify-center mb-2">
-       
-        <h2 className="text-2xl font-semibold">PAGE NOT FOUND ⚠️</h2>
-      </div>
-      <div className="border-gray-400 border-t my-2"></div>
-      <div className='bg-white border rounded-lg shadow-xl p-2 lg:p-6 min-h-screen '>
+    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 text-center">
+          {/* Error Icon */}
+          <div className="mb-6">
+            <FaExclamationTriangle className="text-6xl text-yellow-500 mx-auto" />
+          </div>
 
-      <p className='mb-2 mt-2 bg-gray-300'>
-      💀 404
-      </p>
-      <p>
-      <span className=' hover:text-blue-500'><a href="/portfolio/">🏠 Back to Home</a></span>
-      </p>  
+          {/* Error Code */}
+          <h1 className="text-8xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+            404
+          </h1>
+
+          {/* Error Message */}
+          <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-8">
+            Page Not Found
+          </h2>
+
+          {/* Description */}
+          <p className="text-gray-600 dark:text-gray-400 mb-8">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+
+          {/* Back to Home Button */}
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200"
+          >
+            <FaHome className="text-lg" />
+            <span>Back to Home</span>
+          </Link>
+        </div>
       </div>
     </div>
-  </div>
-
   );
 };
 

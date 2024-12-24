@@ -4,105 +4,77 @@ import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import { useTranslation } from "react-i18next";
-import i18n from "../i18n";
+import { Link } from "react-scroll";
+import Footer from "./Footer";
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
-  function generateSpaces(count: number) {
-    const spaces = "\u00A0".repeat(count);
-    return spaces;
-  }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* navigation bar */}
+    <div className="min-h-screen flex flex-col dark:bg-gray-900">
       <Navigation />
 
-      {/* Home Content */}
+      {/* Hero Section */}
+      <div id="home" className="bg-gray-100 dark:bg-gray-900">
+        <div className="w-full">
+          <div className="bg-white dark:bg-gray-800 rounded-xs shadow-xl min-h-[calc(100vh-64px)] flex items-center justify-center">
+            <div className="w-full py-8 px-4 md:px-8 lg:px-12">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-customColorHeader dark:text-gray-100 text-center">
+                {t("translation.home.paragraphs.greeting")} <br />
+                {t("translation.home.paragraphs.header")}
+              </h1>
 
-      <div
-        id="home"
-        className="bg-gray-100 flex flex-col justify-center items-center"
-      >
-        <div className="min-h-screen md:mx-auto text-center pt-4 md:pt-4 p-4 max-w-6xl">
-          <div className="bg-white border rounded-lg shadow-xl p-2 lg:p-6">
-            <div className="flex justify-center">
-              <img
-                src="./img/portfolioDesign.png"
-                alt="Hero Image"
-                className="md:h-64 lg:h-96 rounded-lg"
-              />
-            </div>
-            {/* TRANSLATION */}
-            <div className="text-base text-justify">
-              <p className="text-3xl text-center font-bold mt-2 text-customColorHeader">
-                {i18n.language === "en"
-                  ? /* English content */
-                    "GINO VARELA"
-                  : /* Translated content */
-                    t("translation.home.paragraphs.header")}
-              </p>
-              <p className="text-xl text-center mt-2">
-                {i18n.language === "en"
-                  ? /* English content */
-                    "FullStack Web Developer."
-                  : /* Translated content */
-                    t("translation.home.paragraphs.header2")}
+              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 text-center max-w-4xl mx-auto">
+                {t("translation.home.paragraphs.description")}
               </p>
 
-              <p className="text-base text-justify mt-4">
-                {i18n.language === "en" ? (
-                  /* English content */
-                  <>
-                    {generateSpaces(6)}👋 Welcome to my portfolio, your friendly
-                    guide through the ever-evolving tech terrain. Unlike
-                    traditional tech platforms, this is a personal space where I
-                    extend a hand to fellow tech enthusiasts like you. I
-                    comprehend the challenges of staying current in this dynamic
-                    field, and my commitment is straightforward: to assist you
-                    in your pursuits.
-                  </>
-                ) : (
-                  /* Translated content */
-                  <>
-                    {generateSpaces(6)}
-                    {t("translation.home.paragraphs.paragraph1")}
-                  </>
-                )}
-              </p>
-              <p className="text-base text-justify mt-4">
-                {i18n.language === "en"
-                  ? /* English content */
-                    "This platform functions as both a display of my accomplishments and a valuable tool for the community pursuing their own tech projects. It`s more than just my enthusiasm for technology, it`s about nurturing your success in the tech sphere. Join me to access precious insights and steadfast assistance, equipping you to overcome challenges and attain your objectives in this constantly evolving field."
-                  : /* Translated content */
-                    t("translation.home.paragraphs.paragraph2")}
-              </p>
-              <p className="text-base text-justify mt-4">
-                {i18n.language === "en"
-                  ? /* English content */
-                    "My portfolio goes beyond simply showcasing my accomplishments; it serves as a testament to the untapped potential within you."
-                  : /* Translated content */
-                    t("translation.home.paragraphs.paragraph3")}
-              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <Link
+                  to="about"
+                  smooth={true}
+                  duration={500}
+                  offset={5}
+                  className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
+                >
+                  {t("translation.navigation.about")}
+                </Link>
+                <Link
+                  to="projects"
+                  smooth={true}
+                  duration={500}
+                  offset={70}
+                  className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
+                >
+                  {t("translation.navigation.projects")}
+                </Link>
+                <Link
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  offset={10}
+                  className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
+                >
+                  {t("translation.navigation.contact")}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* About Section */}
       <div id="about">
         <About />
       </div>
 
-      {/* Projects Section */}
       <div id="projects">
         <Projects />
       </div>
 
-      {/* Contact Section */}
       <div id="contact">
         <Contact />
       </div>
+
+      <Footer />
     </div>
   );
 };

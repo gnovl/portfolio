@@ -1,85 +1,167 @@
 import React from "react";
-import { FaFolderOpen } from "react-icons/fa6";
-import ProjectItem from "./ItemsProjects";
+import {
+  FaFolderOpen,
+  FaGithub,
+  FaExternalLinkAlt,
+  FaShareAlt,
+} from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import i18n from "../i18n";
 
-const projectData = [
-  {
-    imageSrc: "./img/averias_hogar_sc.png",
-    title: "Averías Hogar",
-    status: "Completed",
-    technologies: "Next.js, TypeScript, Google reCAPTCHA, React libraries",
-    description: "",
-    githubLink: "",
-    hostingLink: "https://averiashogar.es/",
-  },
-  {
-    imageSrc: "./img/snake_game_python.png",
-    title: "",
-    status: "",
-    technologies: "Python",
-    description: "",
-    githubLink: "",
-    hostingLink: "",
-  },
-  {
-    imageSrc: "./img/rocket.png",
-    title: "Coming Soon",
-    status: "Coming Soon",
-    technologies: "",
-    description:
-      "Stay tuned for exciting projects, innovations, and more. I`m commited to continue growing as a professional.",
-    githubLink: "",
-    hostingLink: "",
-  },
+interface ProjectLink {
+  live?: string;
+  github?: string;
+}
 
-  // Add more project data objects here
+interface Project {
+  id: keyof typeof projectsData;
+  links: ProjectLink;
+}
+
+// Project data with links
+const projectsData = {
+  averiasHogar: {
+    links: {
+      live: "https://averiashogar.es/",
+      github: "https://github.com/gnovl/averias-app",
+    },
+  },
+  taskEzy: {
+    links: {
+      github: "https://github.com/gnovl/task-Ezy-app",
+    },
+  },
+  dawProject: {
+    links: {
+      github: "https://github.com/gnovl/daw-proyecto",
+    },
+  },
+  portfolio: {
+    links: {
+      live: "https://gnovl.github.io/portfolio/",
+      github: "https://github.com/gnovl/portfolio",
+    },
+  },
+} as const;
+
+// Projects array with IDs
+const projects: Project[] = [
+  { id: "averiasHogar", links: projectsData.averiasHogar.links },
+  { id: "taskEzy", links: projectsData.taskEzy.links },
+  { id: "dawProject", links: projectsData.dawProject.links },
+  { id: "portfolio", links: projectsData.portfolio.links },
 ];
+
+const shareProject = async (project: Project, title: string) => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: title,
+        text: `Check out this project: ${title}`,
+        url: project.links.live || project.links.github || window.location.href,
+      });
+    } catch (error) {
+      console.log("Error sharing:", error);
+    }
+  } else {
+    const shareUrl =
+      project.links.live || project.links.github || window.location.href;
+    navigator.clipboard.writeText(shareUrl);
+    alert("Link copied to clipboard!");
+  }
+};
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center lg:pt-14">
-      <div className="md:mx-auto text-center pt-20 p-4 max-w-6xl">
-        <div className="bg-customBGHeader text-customColorHeader border rounded-md flex items-center justify-center mb-2">
-          <FaFolderOpen className="text-xl mr-1" />
-          <h2 className="text-2xl font-semibold">
-            {i18n.language === "en"
-              ? "Projects"
-              : t("translation.home.projects.title")}
-          </h2>
-        </div>
-        <div className="border-gray-400 border-t my-2"></div>
-        <div className="bg-white border rounded-lg shadow-xl p-2 lg:p-6 ">
-          {/* TRANSLATIONS */}
-          <p className="text-base text-justify">
-            {i18n.language === "en"
-              ? /* English content */
-                "Here I will be showcasing my current under development projects as well as my finished works, offering a comprehensive overview of my skills and expertise. Explore the diverse range of projects I've undertaken to witness my growth and capabilities firsthand. Whether you're interested in my latest endeavors or past achievements, you'll find a collection that reflects my continuous journey in software and web development."
-              : /* Translated content */
-                t("translation.home.projects.paragraph1")}
-          </p>
-          <p className="text-base text-justify mt-2 mb-2">
-            {i18n.language === "en"
-              ? /* English content */
-                "🗃️ My projects"
-              : /* Translated content */
-                t("translation.home.projects.paragraph2")}
-          </p>
+    <div className="bg-gray-100 dark:bg-gray-900">
+      <div className="w-full">
+        <div className="bg-white dark:bg-gray-800 rounded-xs shadow-xl min-h-screen flex flex-col justify-center">
+          <div className="w-full py-8 px-4 md:px-8 lg:px-12">
+            {/* Header */}
+            <div className="flex items-center space-x-3 mb-8">
+              <FaFolderOpen className="text-2xl text-gray-700 dark:text-gray-300" />
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                {t("translation.home.projects.title")}
+              </h2>
+            </div>
 
-          {/* Iterate over the project data and create a ProjectItem for each */}
-          <ul className="list-disc list-inside">
-            {projectData.map((project, index) => (
-              <ProjectItem
-                projectKey={`project${index + 1}`}
-                key={index}
-                project={project}
-                imageSrc={project.imageSrc}
-              />
-            ))}
-          </ul>
+            {/* Projects List */}
+            <div className="flex flex-col items-center space-y-4">
+              {projects.map((project) => {
+                const title = t(
+                  `translation.home.projects.items.${project.id}.title`
+                );
+                const description = t(
+                  `translation.home.projects.items.${project.id}.description`
+                );
+                const technologies = t(
+                  `translation.home.projects.items.${project.id}.technologies`,
+                  { returnObjects: true }
+                ) as string[];
+
+                return (
+                  <div
+                    key={project.id}
+                    className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-gray-800 dark:text-white w-full max-w-4xl shadow-sm border border-gray-200 dark:border-gray-600"
+                  >
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                      {title}
+                    </h3>
+
+                    <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-4">
+                      {description}
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {technologies.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="bg-white dark:bg-gray-800 px-3 py-1 rounded-md text-sm font-medium text-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-700"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end space-x-4">
+                      {project.links.live && (
+                        <a
+                          href={project.links.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                          title="Live Demo"
+                        >
+                          <FaExternalLinkAlt size={18} />
+                        </a>
+                      )}
+                      {project.links.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                          title="GitHub Repository"
+                        >
+                          <FaGithub size={18} />
+                        </a>
+                      )}
+                      <button
+                        onClick={() => shareProject(project, title)}
+                        className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                        title="Share Project"
+                      >
+                        <FaShareAlt size={18} />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

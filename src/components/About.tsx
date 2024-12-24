@@ -1,104 +1,145 @@
 import React from "react";
 import { FaUser } from "react-icons/fa6";
-import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaServer,
-  FaPython,
-} from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
 import { useTranslation } from "react-i18next";
-import i18n from "../i18n";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
 
+  const stack = {
+    languages: [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "C#",
+      "HTML5",
+      "CSS3",
+      "PHP",
+    ],
+    frameworks: ["React", "Node.js", "Next.js", "Tailwind CSS"],
+    versionControl: ["Git", "GitHub"],
+    developmentTools: ["JSON", "Prisma"],
+    databases: ["MySQL", "Oracle"],
+    ai: ["Large Language Models (LLMs)"],
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center ">
-      <div className="md:mx-auto text-center lg:pt-4 p-4 pt-20 max-w-6xl">
-        <div className="bg-customBGHeader text-customColorHeader border rounded-md flex items-center justify-center mb-2">
-          <FaUser className="text-xl mr-1" />
-          <h2 className="text-2xl font-semibold">
-            {i18n.language === "en"
-              ? "About me"
-              : t("translation.home.about.title")}
-          </h2>
-        </div>
-        <div className="border-gray-400 border-t my-2"></div>
-        <div className="bg-white border rounded-lg shadow-xl p-2 lg:p-6">
-          <p className="text-base text-justify mt-4">
-            {i18n.language === "en"
-              ? /* English content */
-                "Specializing in web development, passionate about emerging technologies and best practices. Experienced in team and individual project development. I also undertake freelance work tailored to the client's needs. My primary goal is to continue growing professionally in the technology field and stay updated with the latest technologies of today."
-              : /* Translated content */
-                t("translation.home.about.paragraph1")}
-          </p>
-          <p className="text-base text-justify mt-4">
-            {i18n.language === "en"
-              ? /* English content */
-                "As an enthusiastic web developer, my tech adventure knows no bounds."
-              : /* Translated content */
-                t("translation.home.about.paragraph2")}
-          </p>
-          <p className="text-base text-justify mt-4">
-            {i18n.language === "en"
-              ? /* English content */
-                "🛠️ Tools that I use in my day-to-day: HTML5, CSS3, JavaScript, React, Node.js, and beyond, my passion fuels my drive for constant growth. My portfolio showcases dynamic web applications that are not just user-friendly but also responsive."
-              : /* Translated content */
-                t("translation.home.about.paragraph3")}
-          </p>
+    <div className="bg-gray-100 dark:bg-gray-900">
+      <div className="w-full">
+        <div className="bg-white dark:bg-gray-800 rounded-xs shadow-xl min-h-screen flex flex-col justify-center">
+          <div className="w-full py-8 px-4 md:px-8 lg:px-12">
+            <div className="flex items-center space-x-3 mb-8">
+              <FaUser className="text-2xl text-gray-700 dark:text-gray-300" />
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                {t("translation.home.about.title")}
+              </h2>
+            </div>
 
-          {/* Skills section */}
-          <div className="flex flex-wrap justify-center mt-9">
-            <div className="flex items-center mr-4 mb-4">
-              <FaHtml5 className="text-4xl mr-2 text-gray-700 hover:text-orange-500" />
-              <span>HTML5</span>
+            {/* Personal Introduction */}
+            <div className="prose dark:prose-invert max-w-none mt-6">
+              <p className="text-base text-justify leading-relaxed dark:text-gray-300">
+                {t("translation.home.about.introduction")}
+              </p>
             </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaCss3 className="text-4xl mr-2 text-gray-700 hover:text-blue-500" />
-              <span>CSS3</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaJs className="text-4xl mr-2 text-gray-700 hover:text-yellow-500" />
-              <span>Javascript</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaPython className="text-4xl mr-2 text-gray-700 hover:text-blue-500" />
-              <span>Python</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaReact className="text-4xl mr-2 text-gray-700 hover:text-blue-400" />
-              <span>React</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaNodeJs className="text-4xl mr-2 text-gray-700 hover:text-green-500" />
-              <span>Nodejs</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaServer className="text-4xl mr-2 text-gray-700 hover:text-yellow-500" />
-              <span>Expressjs</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <FaServer className="text-4xl mr-2 text-gray-700 hover:text-blue-500 " />
-              <span>MySQL</span>
-            </div>
-            <div className="flex items-center mr-4 mb-4">
-              <DiMongodb className="text-4xl mr-2 text-gray-700 hover:text-black" />
-              <span>MongoDB</span>
-            </div>
-          </div>
 
-          {/* DIV TRANSLATIONS */}
-          <div>
-            <p className="text-base text-justify mb-2 ">
-              {t("translation.home.skills.paragraph1")}
-            </p>
-            <p className="text-base text-justify mb-2 ">
-              {t("translation.home.skills.paragraph2")}
-            </p>
+            {/* Tech Stack Section */}
+            <div className="mt-12">
+              <h3 className="text-xl font-semibold mb-4 dark:text-gray-100">
+                {t("translation.home.about.stack.title")}
+              </h3>
+              <p className="text-base text-gray-600 dark:text-gray-400 mb-8">
+                {t("translation.home.about.stack.description")}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Languages */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t("translation.home.about.stack.categories.languages")}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.languages.map((lang) => (
+                      <li key={lang} className="text-sm">
+                        {lang}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Frameworks */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t("translation.home.about.stack.categories.frameworks")}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.frameworks.map((framework) => (
+                      <li key={framework} className="text-sm">
+                        {framework}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Version Control */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t(
+                      "translation.home.about.stack.categories.versionControl"
+                    )}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.versionControl.map((tool) => (
+                      <li key={tool} className="text-sm">
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Development Tools */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t(
+                      "translation.home.about.stack.categories.developmentTools"
+                    )}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.developmentTools.map((tool) => (
+                      <li key={tool} className="text-sm">
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Databases */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t("translation.home.about.stack.categories.databases")}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.databases.map((db) => (
+                      <li key={db} className="text-sm">
+                        {db}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* AI */}
+                <div className="space-y-2">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                    {t("translation.home.about.stack.categories.ai")}
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                    {stack.ai.map((item) => (
+                      <li key={item} className="text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

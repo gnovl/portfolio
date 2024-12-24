@@ -1,149 +1,200 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-scroll";
 import { AiFillGithub, AiOutlineFilePdf } from "react-icons/ai";
-import "./HighlightSection.css";
+import { Menu, Transition } from "@headlessui/react";
+import { IoLanguage } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-import ResumeModal from "./ResumeModal"; // We'll create this component next
+import ResumeModal from "./ResumeModal";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Navigation: React.FC = () => {
-  const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState<string | null>("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const handleSetActiveSection = (id: string | null) => {
-    setActiveSection(id);
-  };
-
-  useEffect(() => {
-    // Function to handle scroll events
-    const handleScroll = () => {
-      // An array of section IDs to check
-      const sections = ["home", "about", "projects", "contact"];
-      // Loop through each section
-      for (const sectionId of sections) {
-        // Get the DOM element of the section by its ID
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-          // Get the position of the section relative to the viewport
-          const rect = section.getBoundingClientRect();
-          // Check if the top of the section is at or above 100 pixels from the top of the viewport
-          // and if the bottom of the section is at or below 100 pixels from the top of the viewport
-
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            // If the conditions are met, set the active section to this section's ID
-            handleSetActiveSection(sectionId);
-            // Exit the loop, as we've found the active section
-            break;
-          }
-        }
-      }
-
-      // Check if the scroll position is very close to the top (within a threshold)
-      const isAtTop = window.scrollY < 10;
-      if (isAtTop) {
-        // If the scroll position is near the top, set the active section to 'home'
-        handleSetActiveSection("home");
-      }
-    };
-
-    // Initialize the active section on first load
-    handleScroll();
-
-    // Add a scroll event listener to the window, so we can call handleScroll when the user scrolls
-    window.addEventListener("scroll", handleScroll);
-    // Cleanup: Remove the scroll event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const isSmallScreen = window.innerWidth < 768; // Adjust the breakpoint as needed
+  const isSmallScreen = window.innerWidth < 768;
   const offsetHome = isSmallScreen ? -160 : -100;
-  const offsetAbout = isSmallScreen ? -90 : 5;
-  const offsetProjects = isSmallScreen ? -90 : 70;
-  const offsetContact = isSmallScreen ? -80 : 10;
+  const offsetAbout = isSmallScreen ? -90 : -40;
+  const offsetProjects = isSmallScreen ? -90 : -45;
+  const offsetContact = isSmallScreen ? -80 : -45;
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  return (
-    <nav className="bg-white lg:p-3 p-6 pb-3 sticky top-0 z-50 border">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <ul className="flex flex-col md:flex-row lg:ml-auto md:ml-auto">
-          <li>
-            <Link
-              to="home"
-              smooth={true}
-              duration={500}
-              offset={offsetHome}
-              className={`md:hover:bg-customGrayHover  px-2 py-0 md:py-2 md:m-1   rounded-md transition duration-300 cursor-pointer ${
-                activeSection === "home" ? "active-link" : "font-thin"
-              }`}
-            >
-              {t("translation.navigation.home")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="about"
-              smooth={true}
-              duration={500}
-              offset={offsetAbout}
-              className={` md:hover:bg-customGrayHover px-2 py-0 md:py-2 md:m-1 rounded-md transition duration-300 cursor-pointer ${
-                activeSection === "about" ? "active-link" : "font-thin"
-              }`}
-            >
-              {t("translation.navigation.about")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="projects"
-              smooth={true}
-              duration={500}
-              offset={offsetProjects}
-              className={`md:hover:bg-customGrayHover px-2 py-0 md:py-2 md:m-1 rounded-md transition duration-300 cursor-pointer ${
-                activeSection === "projects" ? "active-link" : "font-thin"
-              }`}
-            >
-              {t("translation.navigation.projects")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
-              offset={offsetContact}
-              className={` md:hover:bg-customGrayHover px-2 py-0 md:py-2 md:m-1 rounded-md transition duration-300 cursor-pointer ${
-                activeSection === "contact" ? "active-link" : "font-thin"
-              }`}
-            >
-              {t("translation.navigation.contact")}
-            </Link>
-          </li>
-        </ul>
-        <div className="flex items-center space-x-2 mt-2 md:mt-0">
-          <a
-            href="https://github.com/gnovl"
-            className="hover:text-blue-500"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <AiFillGithub size={22} />
-          </a>
-          <div className="tooltip-container">
-            <button
-              onClick={openModal}
-              className="hover:text-blue-500"
-              aria-label="Open Resume"
-            >
-              <AiOutlineFilePdf size={22} />
-            </button>
-            <span className="tooltip">View CV</span>
-          </div>
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const MenuItem = ({
+    children,
+    onClick,
+    className = "",
+  }: {
+    children: React.ReactNode;
+    onClick?: () => void;
+    className?: string;
+  }) => (
+    <Menu.Item>
+      {({ active }) => (
+        <div
+          onClick={onClick}
+          className={`${
+            active ? "bg-gray-100 dark:bg-gray-700" : ""
+          } ${className} px-4 py-2 cursor-pointer rounded-md dark:text-gray-200`}
+        >
+          {children}
         </div>
+      )}
+    </Menu.Item>
+  );
+
+  return (
+    <nav className="bg-white dark:bg-gray-800 lg:p-3 p-6 pb-3 sticky top-0 z-50 border-b dark:border-gray-700">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center space-x-2">
+          {/* Language Selector */}
+          <Menu as="div" className="relative inline-block text-left">
+            {({ open }) => (
+              <>
+                <Menu.Button className="px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md font-medium transition-all duration-200">
+                  <IoLanguage size={20} />
+                </Menu.Button>
+
+                <Transition
+                  show={open}
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute left-0 mt-2 w-32 origin-top-left bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2 focus:outline-none">
+                    <MenuItem
+                      onClick={() => changeLanguage("en")}
+                      className={i18n.language === "en" ? "font-bold" : ""}
+                    >
+                      English
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => changeLanguage("es")}
+                      className={i18n.language === "es" ? "font-bold" : ""}
+                    >
+                      Español
+                    </MenuItem>
+                  </Menu.Items>
+                </Transition>
+              </>
+            )}
+          </Menu>
+          <DarkModeToggle />
+        </div>
+
+        {/* Main Menu */}
+        <Menu as="div" className="relative inline-block text-left">
+          {({ open }) => (
+            <>
+              <Menu.Button className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md font-medium transition-all duration-200 flex items-center space-x-1">
+                <span>Menu</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </Menu.Button>
+
+              <Transition
+                show={open}
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2 focus:outline-none">
+                  <div className="space-y-1">
+                    <MenuItem>
+                      <Link
+                        to="home"
+                        smooth={true}
+                        duration={500}
+                        offset={offsetHome}
+                        className="block w-full"
+                      >
+                        {t("translation.navigation.home")}
+                      </Link>
+                    </MenuItem>
+
+                    <MenuItem>
+                      <Link
+                        to="about"
+                        smooth={true}
+                        duration={500}
+                        offset={offsetAbout}
+                        className="block w-full"
+                      >
+                        {t("translation.navigation.about")}
+                      </Link>
+                    </MenuItem>
+
+                    <MenuItem>
+                      <Link
+                        to="projects"
+                        smooth={true}
+                        duration={500}
+                        offset={offsetProjects}
+                        className="block w-full"
+                      >
+                        {t("translation.navigation.projects")}
+                      </Link>
+                    </MenuItem>
+
+                    <MenuItem>
+                      <Link
+                        to="contact"
+                        smooth={true}
+                        duration={500}
+                        offset={offsetContact}
+                        className="block w-full"
+                      >
+                        {t("translation.navigation.contact")}
+                      </Link>
+                    </MenuItem>
+
+                    <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+
+                    <MenuItem>
+                      <a
+                        href="https://github.com/gnovl"
+                        className="flex items-center w-full"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <AiFillGithub className="mr-2" size={20} />
+                        GitHub
+                      </a>
+                    </MenuItem>
+
+                    <MenuItem onClick={openModal}>
+                      <div className="flex items-center w-full">
+                        <AiOutlineFilePdf className="mr-2" size={20} />
+                        View CV
+                      </div>
+                    </MenuItem>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </>
+          )}
+        </Menu>
       </div>
       <ResumeModal isOpen={isModalOpen} onClose={closeModal} />
     </nav>
