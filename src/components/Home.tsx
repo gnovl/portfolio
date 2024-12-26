@@ -9,6 +9,10 @@ import Footer from "./Footer";
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const isSmallScreen = window.innerWidth < 768;
+  const offsetAbout = isSmallScreen ? -60 : -40;
+  const offsetProjects = isSmallScreen ? -60 : -45;
+  const offsetContact = isSmallScreen ? -60 : -45;
 
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-900">
@@ -33,7 +37,7 @@ const Home: React.FC = () => {
                   to="about"
                   smooth={true}
                   duration={500}
-                  offset={5}
+                  offset={offsetAbout}
                   className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
                 >
                   {t("translation.navigation.about")}
@@ -42,7 +46,7 @@ const Home: React.FC = () => {
                   to="projects"
                   smooth={true}
                   duration={500}
-                  offset={70}
+                  offset={offsetProjects}
                   className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
                 >
                   {t("translation.navigation.projects")}
@@ -51,7 +55,7 @@ const Home: React.FC = () => {
                   to="contact"
                   smooth={true}
                   duration={500}
-                  offset={10}
+                  offset={offsetContact}
                   className="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer w-full md:w-auto text-lg"
                 >
                   {t("translation.navigation.contact")}
