@@ -1,24 +1,20 @@
 import React, { Fragment } from "react";
 import { Link } from "react-scroll";
-import { AiFillGithub, AiOutlineFilePdf } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
+import { FaFileAlt } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
 import { IoLanguage } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-import ResumeModal from "./ResumeModal";
 import DarkModeToggle from "./DarkModeToggle";
 
 const Navigation: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const isSmallScreen = window.innerWidth < 768;
   const offsetHome = isSmallScreen ? -160 : -100;
   const offsetAbout = isSmallScreen ? -90 : -40;
   const offsetProjects = isSmallScreen ? -90 : -45;
   const offsetContact = isSmallScreen ? -80 : -45;
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -183,11 +179,17 @@ const Navigation: React.FC = () => {
                       </a>
                     </MenuItem>
 
-                    <MenuItem onClick={openModal}>
-                      <div className="flex items-center w-full">
-                        <AiOutlineFilePdf className="mr-2" size={20} />
-                        View CV
-                      </div>
+                    <MenuItem>
+                      <Link
+                        to="contact"
+                        smooth={true}
+                        duration={500}
+                        offset={offsetContact}
+                        className="flex items-center w-full"
+                      >
+                        <FaFileAlt className="mr-2" size={20} />
+                        {i18n.language === "en" ? "Request CV" : "Solicitar CV"}
+                      </Link>
                     </MenuItem>
                   </div>
                 </Menu.Items>
@@ -196,7 +198,6 @@ const Navigation: React.FC = () => {
           )}
         </Menu>
       </div>
-      <ResumeModal isOpen={isModalOpen} onClose={closeModal} />
     </nav>
   );
 };

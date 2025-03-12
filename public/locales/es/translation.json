@@ -10,7 +10,7 @@
       "paragraphs": {
         "greeting": "Hola, soy",
         "header": "GINO VARELA",
-        "description": "Un desarrollador web especializado en backend, dedicado a crear y gestionar sitios y aplicaciones web para asegurar el éxito integral del producto con precisión."
+        "description": "Un desarrollador web full-stack con una sólida especialización en tecnologías backend. Creo y mantengo soluciones web integrales que equilibran una arquitectura robusta del lado del servidor con experiencias de usuario intuitivas para entregar productos digitales exitosos."
       },
       "about": {
         "title": "Sobre mí",
@@ -92,7 +92,7 @@
         "placeholders": {
           "name": "Tu nombre...",
           "email": "Tu correo electrónico...",
-          "message": "Buscamos un desarrollador de software competente con habilidades en React y Next.js para un proyecto específico..."
+          "message": "Estoy interesado en tu trabajo y me gustaría solicitar tu CV. Por favor comparte más sobre tu experiencia en..."
         },
         "validation": {
           "name": {
