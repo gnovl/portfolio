@@ -10,7 +10,7 @@
       "paragraphs": {
         "greeting": "Hey, I'm",
         "header": "GINO VARELA",
-        "description": "A skilled web developer, focusing on backend development while crafting and managing websites and web applications to ensure the success of the entire product with finesse."
+        "description": "A full-stack web developer with a strong specialization in backend technologies. I create and maintain comprehensive web solutions that balance robust server-side architecture with intuitive user experiences to deliver successful digital products."
       },
       "about": {
         "title": "About me",
@@ -92,7 +92,7 @@
         "placeholders": {
           "name": "John Doe",
           "email": "example@example.com",
-          "message": "Seeking a React and Next.js specialist to contribute to a tailored development project..."
+          "message": "I'm interested in your work and would like to request your CV. Please share more about your experience in..."
         },
         "validation": {
           "name": {
