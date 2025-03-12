@@ -21,6 +21,7 @@ const Contact = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
   const successMessageRef = useRef<HTMLDivElement | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   const {
     register,
@@ -30,6 +31,35 @@ const Contact = () => {
   } = useForm<FormValues>({
     mode: "onChange",
   });
+
+  // Check dark mode on component mount and when it changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(isDark);
+    };
+
+    // Initial check
+    checkDarkMode();
+
+    // Set up MutationObserver to detect changes to the 'dark' class on html element
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          checkDarkMode();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const sendEmail = (_data: FormValues) => {
     setIsFormSubmitted(true);
@@ -237,12 +267,17 @@ const Contact = () => {
                   )}
                 </div>
 
-                <div className="flex justify-center items-center">
+                <div
+                  className={`flex justify-center items-center ${
+                    isDarkMode ? "recaptcha-dark" : ""
+                  }`}
+                >
                   <ReCAPTCHA
                     ref={captcha}
                     sitekey="6LeFpEEpAAAAAKHAcf--_tF4XU3lyDCtTZ5KRqoA"
                     onChange={onCaptchaChange}
                     size="compact"
+                    theme={isDarkMode ? "dark" : "light"}
                   />
                 </div>
 

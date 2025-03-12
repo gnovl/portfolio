@@ -2,3 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark mode styles for reCAPTCHA */
+.recaptcha-dark iframe {
+  filter: invert(85%) hue-rotate(180deg);
+}
+
+/* For Firefox compatibility */
+.recaptcha-dark div > div > iframe {
+  filter: invert(85%) hue-rotate(180deg);
+}
+
+/* Fix for the reCAPTCHA badge in dark mode */
+.grecaptcha-badge {
+  filter: none !important;
+}
+
+/* Adjust the container to work better with dark backgrounds */
+.recaptcha-dark {
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
