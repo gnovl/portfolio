@@ -43,8 +43,8 @@
               "Tailwind CSS"
             ]
           },
-          "taskEzy": {
-            "title": "task-Ezy",
+          "TaskNail": {
+            "title": "TaskNail",
             "description": "Simplifica tu flujo de trabajo diario, aumenta la productividad y gestiona tus tareas con facilidad.",
             "technologies": [
               "Next.js",

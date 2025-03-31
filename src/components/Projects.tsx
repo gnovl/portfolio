@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaFolderOpen,
   FaGithub,
   FaExternalLinkAlt,
-  FaShareAlt,
+  FaCopy,
+  FaCheck,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
@@ -15,6 +16,7 @@ interface ProjectLink {
 interface Project {
   id: keyof typeof projectsData;
   links: ProjectLink;
+  translationKey: string;
 }
 
 // Project data with links
@@ -25,9 +27,10 @@ const projectsData = {
       github: "https://github.com/gnovl/averias-app",
     },
   },
-  taskEzy: {
+  TaskNail: {
     links: {
-      github: "https://github.com/gnovl/task-Ezy-app",
+      live: "https://www.tasknail.com/",
+      github: "https://github.com/gnovl/task-nail-app.git",
     },
   },
   dawProject: {
@@ -45,33 +48,43 @@ const projectsData = {
 
 // Projects array with IDs
 const projects: Project[] = [
-  { id: "averiasHogar", links: projectsData.averiasHogar.links },
-  { id: "taskEzy", links: projectsData.taskEzy.links },
-  { id: "dawProject", links: projectsData.dawProject.links },
-  { id: "portfolio", links: projectsData.portfolio.links },
+  {
+    id: "averiasHogar",
+    links: projectsData.averiasHogar.links,
+    translationKey: "averiasHogar",
+  },
+  {
+    id: "TaskNail",
+    links: projectsData.TaskNail.links,
+    translationKey: "TaskNail",
+  },
+  {
+    id: "dawProject",
+    links: projectsData.dawProject.links,
+    translationKey: "dawProject",
+  },
+  {
+    id: "portfolio",
+    links: projectsData.portfolio.links,
+    translationKey: "portfolio",
+  },
 ];
-
-const shareProject = async (project: Project, title: string) => {
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: title,
-        text: `Check out this project: ${title}`,
-        url: project.links.live || project.links.github || window.location.href,
-      });
-    } catch (error) {
-      console.log("Error sharing:", error);
-    }
-  } else {
-    const shareUrl =
-      project.links.live || project.links.github || window.location.href;
-    navigator.clipboard.writeText(shareUrl);
-    alert("Link copied to clipboard!");
-  }
-};
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
+  const [copiedProject, setCopiedProject] = useState<string | null>(null);
+
+  const copyToClipboard = (project: Project) => {
+    const url =
+      project.links.live || project.links.github || window.location.href;
+    navigator.clipboard.writeText(url);
+    setCopiedProject(project.id);
+
+    // Reset the copied state after 2 seconds
+    setTimeout(() => {
+      setCopiedProject(null);
+    }, 2000);
+  };
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900">
@@ -90,15 +103,22 @@ const Projects: React.FC = () => {
             <div className="flex flex-col items-center space-y-4">
               {projects.map((project) => {
                 const title = t(
-                  `translation.home.projects.items.${project.id}.title`
+                  `translation.home.projects.items.${project.translationKey}.title`
                 );
                 const description = t(
-                  `translation.home.projects.items.${project.id}.description`
+                  `translation.home.projects.items.${project.translationKey}.description`
                 );
-                const technologies = t(
-                  `translation.home.projects.items.${project.id}.technologies`,
+
+                // Get technologies with proper type handling
+                const technologiesValue = t(
+                  `translation.home.projects.items.${project.translationKey}.technologies`,
                   { returnObjects: true }
-                ) as string[];
+                );
+
+                // Ensure technologies is a string array
+                const technologies: string[] = Array.isArray(technologiesValue)
+                  ? technologiesValue.map((tech) => String(tech))
+                  : [];
 
                 return (
                   <div
@@ -150,11 +170,15 @@ const Projects: React.FC = () => {
                         </a>
                       )}
                       <button
-                        onClick={() => shareProject(project, title)}
+                        onClick={() => copyToClipboard(project)}
                         className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
-                        title="Share Project"
+                        title="Copy Link"
                       >
-                        <FaShareAlt size={18} />
+                        {copiedProject === project.id ? (
+                          <FaCheck size={18} className="text-green-500" />
+                        ) : (
+                          <FaCopy size={18} />
+                        )}
                       </button>
                     </div>
                   </div>
