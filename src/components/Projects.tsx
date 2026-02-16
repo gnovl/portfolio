@@ -23,13 +23,13 @@ interface Project {
 const projectsData = {
   averiasHogar: {
     links: {
-      live: "https://averiashogar.es/",
+      // Live link removed as per request
       github: "https://github.com/gnovl/averias-app",
     },
   },
   TaskNail: {
     links: {
-      live: "https://www.tasknail.com/",
+      // Live link removed as per request
       github: "https://github.com/gnovl/task-nail-app.git",
     },
   },
@@ -75,11 +75,11 @@ const Projects: React.FC = () => {
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
 
   const copyToClipboard = (project: Project) => {
+    // Fallback logic: Live link -> GitHub link -> Current window URL
     const url =
       project.links.live || project.links.github || window.location.href;
     navigator.clipboard.writeText(url);
     setCopiedProject(project.id);
-
     // Reset the copied state after 2 seconds
     setTimeout(() => {
       setCopiedProject(null);
@@ -98,28 +98,24 @@ const Projects: React.FC = () => {
                 {t("translation.home.projects.title")}
               </h2>
             </div>
-
             {/* Projects List */}
             <div className="flex flex-col items-center space-y-4">
               {projects.map((project) => {
                 const title = t(
-                  `translation.home.projects.items.${project.translationKey}.title`
+                  `translation.home.projects.items.${project.translationKey}.title`,
                 );
                 const description = t(
-                  `translation.home.projects.items.${project.translationKey}.description`
+                  `translation.home.projects.items.${project.translationKey}.description`,
                 );
-
                 // Get technologies with proper type handling
                 const technologiesValue = t(
                   `translation.home.projects.items.${project.translationKey}.technologies`,
-                  { returnObjects: true }
+                  { returnObjects: true },
                 );
-
                 // Ensure technologies is a string array
                 const technologies: string[] = Array.isArray(technologiesValue)
                   ? technologiesValue.map((tech) => String(tech))
                   : [];
-
                 return (
                   <div
                     key={project.id}
@@ -128,11 +124,9 @@ const Projects: React.FC = () => {
                     <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
                       {title}
                     </h3>
-
                     <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-4">
                       {description}
                     </p>
-
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {technologies.map((tech, techIndex) => (
@@ -145,8 +139,8 @@ const Projects: React.FC = () => {
                         ))}
                       </div>
                     </div>
-
                     <div className="flex justify-end space-x-4">
+                      {/* Only render Live Link if available */}
                       {project.links.live && (
                         <a
                           href={project.links.live}
@@ -158,6 +152,7 @@ const Projects: React.FC = () => {
                           <FaExternalLinkAlt size={18} />
                         </a>
                       )}
+                      {/* Always render GitHub Link if available */}
                       {project.links.github && (
                         <a
                           href={project.links.github}

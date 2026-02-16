@@ -15,9 +15,9 @@ const About: React.FC = () => {
       "CSS3",
       "PHP",
     ],
-    frameworks: ["React", "Node.js", "Next.js", "Tailwind CSS"],
+    frameworks: ["React", "Node.js", "Next.js", "Tailwind CSS", "Symfony"],
     versionControl: ["Git", "GitHub"],
-    developmentTools: ["JSON", "Prisma"],
+    developmentTools: ["JSON", "Prisma", "Docker"],
     databases: ["MySQL", "Oracle"],
     ai: ["Large Language Models (LLMs)"],
   };
@@ -30,7 +30,7 @@ const About: React.FC = () => {
             <div className="flex items-center space-x-3 mb-8">
               <FaUser className="text-2xl text-gray-700 dark:text-gray-300" />
               <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                {t("translation.home.about.title")}
+                {t("translation.home.about.stack.title")}
               </h2>
             </div>
 
@@ -83,7 +83,7 @@ const About: React.FC = () => {
                 <div className="space-y-2">
                   <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
                     {t(
-                      "translation.home.about.stack.categories.versionControl"
+                      "translation.home.about.stack.categories.versionControl",
                     )}
                   </h4>
                   <ul className="space-y-2 text-gray-600 dark:text-gray-400">
@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 <div className="space-y-2">
                   <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
                     {t(
-                      "translation.home.about.stack.categories.developmentTools"
+                      "translation.home.about.stack.categories.developmentTools",
                     )}
                   </h4>
                   <ul className="space-y-2 text-gray-600 dark:text-gray-400">
