@@ -5,6 +5,8 @@ import {
   FaExternalLinkAlt,
   FaCopy,
   FaCheck,
+  FaCalendarAlt,
+  FaArchive,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
@@ -17,32 +19,49 @@ interface Project {
   id: keyof typeof projectsData;
   links: ProjectLink;
   translationKey: string;
+  lastUpdated: string;
+  isArchived?: boolean;
 }
 
-// Project data with links
+// Project data with links and last updated dates
+
 const projectsData = {
   averiasHogar: {
     links: {
-      // Live link removed as per request
       github: "https://github.com/gnovl/averias-app",
     },
+    lastUpdated: "2024-12",
+    isArchived: true,
   },
   TaskNail: {
     links: {
-      // Live link removed as per request
       github: "https://github.com/gnovl/task-nail-app.git",
     },
+    lastUpdated: "2025-06",
+    isArchived: true,
+  },
+  siteMonitorService: {
+    links: {
+      github: "https://github.com/gnovl/site-monitor-service",
+    },
+    lastUpdated: "2025-05",
+    isArchived: false,
   },
   dawProject: {
     links: {
+      live: "https://github.com/gnovl/daw-proyecto",
       github: "https://github.com/gnovl/daw-proyecto",
     },
+    lastUpdated: "2024-08",
+    isArchived: false,
   },
   portfolio: {
     links: {
       live: "https://gnovl.github.io/portfolio/",
       github: "https://github.com/gnovl/portfolio",
     },
+    lastUpdated: "2026-02",
+    isArchived: false,
   },
 } as const;
 
@@ -52,35 +71,86 @@ const projects: Project[] = [
     id: "averiasHogar",
     links: projectsData.averiasHogar.links,
     translationKey: "averiasHogar",
+    lastUpdated: projectsData.averiasHogar.lastUpdated,
+    isArchived: projectsData.averiasHogar.isArchived,
   },
   {
     id: "TaskNail",
     links: projectsData.TaskNail.links,
     translationKey: "TaskNail",
+    lastUpdated: projectsData.TaskNail.lastUpdated,
+    isArchived: projectsData.TaskNail.isArchived,
+  },
+  {
+    id: "siteMonitorService",
+    links: projectsData.siteMonitorService.links,
+    translationKey: "siteMonitorService",
+    lastUpdated: projectsData.siteMonitorService.lastUpdated,
+    isArchived: projectsData.siteMonitorService.isArchived,
   },
   {
     id: "dawProject",
     links: projectsData.dawProject.links,
     translationKey: "dawProject",
+    lastUpdated: projectsData.dawProject.lastUpdated,
+    isArchived: projectsData.dawProject.isArchived,
   },
   {
     id: "portfolio",
     links: projectsData.portfolio.links,
     translationKey: "portfolio",
+    lastUpdated: projectsData.portfolio.lastUpdated,
+    isArchived: projectsData.portfolio.isArchived,
   },
 ];
 
 const Projects: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
 
+  // Format date to display (e.g., "Jan 2024" or "Ene 2024")
+  const formatDate = (dateString: string) => {
+    const [year, month] = dateString.split("-");
+
+    const monthNames =
+      i18n.language === "es"
+        ? [
+            "Ene",
+            "Feb",
+            "Mar",
+            "Abr",
+            "May",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic",
+          ]
+        : [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+
+    return `${monthNames[parseInt(month) - 1]} ${year}`;
+  };
+
   const copyToClipboard = (project: Project) => {
-    // Fallback logic: Live link -> GitHub link -> Current window URL
     const url =
       project.links.live || project.links.github || window.location.href;
     navigator.clipboard.writeText(url);
     setCopiedProject(project.id);
-    // Reset the copied state after 2 seconds
     setTimeout(() => {
       setCopiedProject(null);
     }, 2000);
@@ -107,12 +177,10 @@ const Projects: React.FC = () => {
                 const description = t(
                   `translation.home.projects.items.${project.translationKey}.description`,
                 );
-                // Get technologies with proper type handling
                 const technologiesValue = t(
                   `translation.home.projects.items.${project.translationKey}.technologies`,
                   { returnObjects: true },
                 );
-                // Ensure technologies is a string array
                 const technologies: string[] = Array.isArray(technologiesValue)
                   ? technologiesValue.map((tech) => String(tech))
                   : [];
@@ -121,9 +189,26 @@ const Projects: React.FC = () => {
                     key={project.id}
                     className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-gray-800 dark:text-white w-full max-w-4xl shadow-sm border border-gray-200 dark:border-gray-600"
                   >
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                      {title}
-                    </h3>
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                          {title}
+                        </h3>
+                        {project.isArchived && (
+                          <span className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs font-medium rounded-md">
+                            <FaArchive size={12} />
+                            {t("translation.home.projects.archived")}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                        <FaCalendarAlt className="mr-1.5" size={14} />
+                        <span>
+                          {t("translation.home.projects.lastUpdated")}{" "}
+                          {formatDate(project.lastUpdated)}
+                        </span>
+                      </div>
+                    </div>
                     <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-4">
                       {description}
                     </p>
@@ -140,7 +225,6 @@ const Projects: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex justify-end space-x-4">
-                      {/* Only render Live Link if available */}
                       {project.links.live && (
                         <a
                           href={project.links.live}
@@ -152,7 +236,6 @@ const Projects: React.FC = () => {
                           <FaExternalLinkAlt size={18} />
                         </a>
                       )}
-                      {/* Always render GitHub Link if available */}
                       {project.links.github && (
                         <a
                           href={project.links.github}
