@@ -30,10 +30,12 @@
       },
       "projects": {
         "title": "Proyectos",
+        "lastUpdated": "Actualizado",
+        "archived": "Archivado",
         "items": {
           "averiasHogar": {
             "title": "Averías Hogar",
-            "description": "Un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar.",
+            "description": "Un sitio web fácil de usar para una empresa local especializada en reparaciones del hogar. Este proyecto ya no se mantiene activamente.",
             "technologies": [
               "Next.js",
               "TypeScript",
@@ -45,7 +47,7 @@
           },
           "TaskNail": {
             "title": "TaskNail",
-            "description": "Simplifica tu flujo de trabajo diario, aumenta la productividad y gestiona tus tareas con facilidad.",
+            "description": "Simplifica tu flujo de trabajo diario, aumenta la productividad y gestiona tus tareas con facilidad. Este proyecto ya no se mantiene activamente.",
             "technologies": [
               "Next.js",
               "TypeScript",
@@ -53,6 +55,23 @@
               "Prisma",
               "PostgreSQL",
               "NextAuth.js"
+            ]
+          },
+          "siteMonitorService": {
+            "title": "Servicio de Monitoreo de Sitios",
+            "description": "Un servicio de monitoreo integral que rastrea el tiempo de actividad y las métricas de rendimiento de sitios web con visualización en tiempo real.",
+            "technologies": [
+              "Python Flask",
+              "HTML5/CSS3",
+              "Chart.js",
+              "Docker",
+              "GitHub Actions",
+              "Terraform",
+              "Kubernetes",
+              "Helm",
+              "Prometheus",
+              "Grafana",
+              "Swagger/OpenAPI"
             ]
           },
           "dawProject": {
