@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
-import { ScrollToTop } from "react-simple-scroll-up";
 import { I18nextProvider } from "react-i18next";
-import i18n from "./i18n"; // Import your i18n configuration
-import { FaCircleArrowUp } from "react-icons/fa6";
+import i18n from "./i18n";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   return (
@@ -16,12 +15,7 @@ function App() {
             <Route path="*" element={<Navigate to="/not-found" />} />
             <Route path="/not-found" element={<NotFound />} />
           </Routes>
-          <ScrollToTop
-            symbol={
-              <FaCircleArrowUp className="text-gray-400 dark:text-gray-200 hover:text-gray-600 dark:hover:text-white text-3xl transition-colors drop-shadow-sm" />
-            }
-            offsetTop={500}
-          />
+          <ScrollToTopButton />
         </div>
       </BrowserRouter>
     </I18nextProvider>

@@ -69,7 +69,7 @@ const Contact = () => {
         "service_cm3fzmq",
         "template_wpsupg8",
         form.current!,
-        "T9QxCDk1od-h1Pj9d"
+        "T9QxCDk1od-h1Pj9d",
       )
       .then(
         (result) => {
@@ -89,7 +89,7 @@ const Contact = () => {
         },
         (error) => {
           console.log(error.text);
-        }
+        },
       );
   };
 
@@ -128,7 +128,7 @@ const Contact = () => {
               {t("translation.home.contact.message")}
             </p>
 
-            <div className="max-w-md mx-auto">
+            <div className="max-w-md mx-auto border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <form
                 ref={form}
                 onSubmit={handleSubmit(onSubmit)}
@@ -144,23 +144,23 @@ const Contact = () => {
                     type="text"
                     {...register("name", {
                       required: t(
-                        "translation.home.contact.validation.name.required"
+                        "translation.home.contact.validation.name.required",
                       ),
                       maxLength: {
                         value: 10,
                         message: t(
-                          "translation.home.contact.validation.name.maxLength"
+                          "translation.home.contact.validation.name.maxLength",
                         ),
                       },
                       pattern: {
                         value: /^[A-Za-z]+$/i,
                         message: t(
-                          "translation.home.contact.validation.name.pattern"
+                          "translation.home.contact.validation.name.pattern",
                         ),
                       },
                     })}
                     placeholder={t(
-                      "translation.home.contact.placeholders.name"
+                      "translation.home.contact.placeholders.name",
                     )}
                     className="w-full p-2.5 border dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 focus:border-gray-400 dark:focus:border-gray-500 outline-none transition-all bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                   />
@@ -228,7 +228,7 @@ const Contact = () => {
                       },
                     })}
                     placeholder={t(
-                      "translation.home.contact.placeholders.email"
+                      "translation.home.contact.placeholders.email",
                     )}
                     className="w-full p-2.5 border dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 focus:border-gray-400 dark:focus:border-gray-500 outline-none transition-all bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                   />
@@ -257,7 +257,7 @@ const Contact = () => {
                     })}
                     className="w-full p-2.5 border dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 focus:border-gray-400 dark:focus:border-gray-500 outline-none transition-all resize-none h-28 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder={t(
-                      "translation.home.contact.placeholders.message"
+                      "translation.home.contact.placeholders.message",
                     )}
                   />
                   {errors.message && (
