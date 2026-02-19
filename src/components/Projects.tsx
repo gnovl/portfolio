@@ -35,7 +35,7 @@ const projectsData = {
   },
   TaskNail: {
     links: {
-      github: "https://github.com/gnovl/task-nail-app.git",
+      github: "https://github.com/gnovl/task-nail-app",
     },
     lastUpdated: "2025-06",
     isArchived: true,
@@ -49,7 +49,6 @@ const projectsData = {
   },
   dawProject: {
     links: {
-      live: "https://github.com/gnovl/daw-proyecto",
       github: "https://github.com/gnovl/daw-proyecto",
     },
     lastUpdated: "2024-08",
@@ -57,7 +56,6 @@ const projectsData = {
   },
   portfolio: {
     links: {
-      live: "https://gnovl.github.io/portfolio/",
       github: "https://github.com/gnovl/portfolio",
     },
     lastUpdated: "2026-02",
