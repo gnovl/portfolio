@@ -189,20 +189,20 @@ const Projects: React.FC = () => {
                     key={project.id}
                     className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-gray-800 dark:text-white w-full max-w-4xl shadow-sm border border-gray-200 dark:border-gray-600"
                   >
-                    <div className="flex justify-between items-start mb-3">
-                      <div className="flex items-center gap-3">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2">
                         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                           {title}
                         </h3>
                         {project.isArchived && (
-                          <span className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs font-medium rounded-md">
-                            <FaArchive size={12} />
+                          <span className="flex items-center gap-1 px-2 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs font-medium rounded-md whitespace-nowrap">
+                            <FaArchive size={10} />
                             {t("translation.home.projects.archived")}
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                        <FaCalendarAlt className="mr-1.5" size={14} />
+                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap sm:mt-1">
+                        <FaCalendarAlt className="mr-1" size={12} />
                         <span>
                           {t("translation.home.projects.lastUpdated")}{" "}
                           {formatDate(project.lastUpdated)}
