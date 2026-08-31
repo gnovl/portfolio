@@ -86,6 +86,22 @@
               "MySQL"
             ]
           },
+          "inspirationDental": {
+            "title": "Inspiration Laboratorio de Estética Dental",
+            "description": "Un sitio web para un laboratorio de estética dental, mostrando sus servicios y experiencia.",
+            "technologies": ["Next.js", "TypeScript", "Tailwind CSS"]
+          },
+          "agendaDental": {
+            "title": "AgendaDental",
+            "description": "Una aplicación web para la gestión de laboratorios y clínicas dentales, optimizando la programación y los flujos de trabajo.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "NextAuth.js",
+              "Resend",
+              "PostgreSQL"
+            ]
+          },
           "portfolio": {
             "title": "Portafolio personal",
             "description": "Mi portafolio personal que muestra mis proyectos y habilidades.",

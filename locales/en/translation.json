@@ -86,6 +86,22 @@
               "MySQL"
             ]
           },
+          "inspirationDental": {
+            "title": "Inspiration Dental Aesthetics Lab",
+            "description": "A website for a dental aesthetics laboratory, showcasing their services and expertise.",
+            "technologies": ["Next.js", "TypeScript", "Tailwind CSS"]
+          },
+          "agendaDental": {
+            "title": "AgendaDental",
+            "description": "A web application for managing dental laboratories and clinics, streamlining scheduling and workflows.",
+            "technologies": [
+              "Next.js",
+              "TypeScript",
+              "NextAuth.js",
+              "Resend",
+              "PostgreSQL"
+            ]
+          },
           "portfolio": {
             "title": "Personal Portfolio",
             "description": "My personal portfolio showcasing my projects and skills.",
