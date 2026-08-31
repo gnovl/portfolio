@@ -61,6 +61,20 @@ const projectsData = {
     lastUpdated: "2026-02",
     isArchived: false,
   },
+  inspirationDental: {
+    links: {
+      live: "https://inspirationesteticadental.es/",
+    },
+    lastUpdated: "2026-08",
+    isArchived: false,
+  },
+  agendaDental: {
+    links: {
+      live: "https://agenda-dental.com/",
+    },
+    lastUpdated: "2026-08",
+    isArchived: false,
+  },
 } as const;
 
 // Projects array with IDs
@@ -92,6 +106,20 @@ const projects: Project[] = [
     translationKey: "dawProject",
     lastUpdated: projectsData.dawProject.lastUpdated,
     isArchived: projectsData.dawProject.isArchived,
+  },
+  {
+    id: "inspirationDental",
+    links: projectsData.inspirationDental.links,
+    translationKey: "inspirationDental",
+    lastUpdated: projectsData.inspirationDental.lastUpdated,
+    isArchived: projectsData.inspirationDental.isArchived,
+  },
+  {
+    id: "agendaDental",
+    links: projectsData.agendaDental.links,
+    translationKey: "agendaDental",
+    lastUpdated: projectsData.agendaDental.lastUpdated,
+    isArchived: projectsData.agendaDental.isArchived,
   },
   {
     id: "portfolio",
