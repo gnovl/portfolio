@@ -37,11 +37,11 @@ export default function ScrollToTopButton() {
         fixed bottom-6 right-6 z-50
         flex items-center justify-center
         rounded-full
-        bg-white dark:bg-gray-800
-        border border-gray-200 dark:border-gray-700
+        bg-zinc-900
+        border border-zinc-800
         shadow-md
         transition-all duration-200
-        hover:bg-gray-100 dark:hover:bg-gray-700
+        hover:bg-zinc-800
         focus:outline-none
       "
       style={{ width: SIZE, height: SIZE }}
@@ -59,7 +59,7 @@ export default function ScrollToTopButton() {
           r={RADIUS}
           fill="none"
           strokeWidth={STROKE}
-          className="stroke-gray-200 dark:stroke-gray-700"
+          className="stroke-zinc-800"
         />
         {/* Progress */}
         <circle
@@ -71,12 +71,12 @@ export default function ScrollToTopButton() {
           strokeDasharray={CIRCUMFERENCE}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          className="stroke-gray-600 dark:stroke-gray-300 transition-all duration-100"
+          className="stroke-blue-400 transition-all duration-100"
         />
       </svg>
 
       {/* Arrow icon */}
-      <FaCircleArrowUp className="relative z-10 text-lg text-gray-600 dark:text-gray-300" />
+      <FaCircleArrowUp className="relative z-10 text-lg text-zinc-300" />
     </button>
   );
 }

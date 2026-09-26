@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import {
-  FaFolderOpen,
   FaGithub,
   FaExternalLinkAlt,
   FaCopy,
   FaCheck,
-  FaCalendarAlt,
   FaArchive,
+  FaTools,
+  FaTasks,
+  FaChartLine,
+  FaGraduationCap,
+  FaCalendarCheck,
+  FaLaptopCode,
 } from "react-icons/fa";
+import { FaTooth } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 
 interface ProjectLink {
@@ -21,6 +26,10 @@ interface Project {
   translationKey: string;
   lastUpdated: string;
   isArchived?: boolean;
+  icon: React.ElementType;
+  gradientClass: string;
+  iconClass: string;
+  dotClass: string;
 }
 
 // Project data with links and last updated dates
@@ -77,7 +86,7 @@ const projectsData = {
   },
 } as const;
 
-// Projects array with IDs
+// Projects array with IDs, plus the cover art (icon + accent colors) for each
 const projects: Project[] = [
   {
     id: "averiasHogar",
@@ -85,6 +94,10 @@ const projects: Project[] = [
     translationKey: "averiasHogar",
     lastUpdated: projectsData.averiasHogar.lastUpdated,
     isArchived: projectsData.averiasHogar.isArchived,
+    icon: FaTools,
+    gradientClass: "from-amber-900/60 via-black to-black",
+    iconClass: "text-amber-400",
+    dotClass: "bg-amber-400",
   },
   {
     id: "TaskNail",
@@ -92,6 +105,10 @@ const projects: Project[] = [
     translationKey: "TaskNail",
     lastUpdated: projectsData.TaskNail.lastUpdated,
     isArchived: projectsData.TaskNail.isArchived,
+    icon: FaTasks,
+    gradientClass: "from-violet-900/60 via-black to-black",
+    iconClass: "text-violet-400",
+    dotClass: "bg-violet-400",
   },
   {
     id: "siteMonitorService",
@@ -99,6 +116,10 @@ const projects: Project[] = [
     translationKey: "siteMonitorService",
     lastUpdated: projectsData.siteMonitorService.lastUpdated,
     isArchived: projectsData.siteMonitorService.isArchived,
+    icon: FaChartLine,
+    gradientClass: "from-emerald-900/60 via-black to-black",
+    iconClass: "text-emerald-400",
+    dotClass: "bg-emerald-400",
   },
   {
     id: "dawProject",
@@ -106,6 +127,10 @@ const projects: Project[] = [
     translationKey: "dawProject",
     lastUpdated: projectsData.dawProject.lastUpdated,
     isArchived: projectsData.dawProject.isArchived,
+    icon: FaGraduationCap,
+    gradientClass: "from-sky-900/60 via-black to-black",
+    iconClass: "text-sky-400",
+    dotClass: "bg-sky-400",
   },
   {
     id: "inspirationDental",
@@ -113,6 +138,10 @@ const projects: Project[] = [
     translationKey: "inspirationDental",
     lastUpdated: projectsData.inspirationDental.lastUpdated,
     isArchived: projectsData.inspirationDental.isArchived,
+    icon: FaTooth,
+    gradientClass: "from-rose-900/60 via-black to-black",
+    iconClass: "text-rose-400",
+    dotClass: "bg-rose-400",
   },
   {
     id: "agendaDental",
@@ -120,6 +149,10 @@ const projects: Project[] = [
     translationKey: "agendaDental",
     lastUpdated: projectsData.agendaDental.lastUpdated,
     isArchived: projectsData.agendaDental.isArchived,
+    icon: FaCalendarCheck,
+    gradientClass: "from-cyan-900/60 via-black to-black",
+    iconClass: "text-cyan-400",
+    dotClass: "bg-cyan-400",
   },
   {
     id: "portfolio",
@@ -127,6 +160,10 @@ const projects: Project[] = [
     translationKey: "portfolio",
     lastUpdated: projectsData.portfolio.lastUpdated,
     isArchived: projectsData.portfolio.isArchived,
+    icon: FaLaptopCode,
+    gradientClass: "from-blue-900/60 via-black to-black",
+    iconClass: "text-blue-400",
+    dotClass: "bg-blue-400",
   },
 ];
 
@@ -183,83 +220,103 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900">
-      <div className="w-full">
-        <div className="bg-white dark:bg-gray-800 rounded-xs shadow-xl min-h-screen flex flex-col justify-center">
-          <div className="w-full py-8 px-4 md:px-8 lg:px-12">
-            {/* Header */}
-            <div className="flex items-center space-x-3 mb-8">
-              <FaFolderOpen className="text-2xl text-gray-700 dark:text-gray-300" />
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                {t("translation.home.projects.title")}
-              </h2>
-            </div>
-            {/* Projects List */}
-            <div className="flex flex-col items-center space-y-4">
-              {projects.map((project) => {
-                const title = t(
-                  `translation.home.projects.items.${project.translationKey}.title`,
-                );
-                const description = t(
-                  `translation.home.projects.items.${project.translationKey}.description`,
-                );
-                const technologiesValue = t(
-                  `translation.home.projects.items.${project.translationKey}.technologies`,
-                  { returnObjects: true },
-                );
-                const technologies: string[] = Array.isArray(technologiesValue)
-                  ? technologiesValue.map((tech) => String(tech))
-                  : [];
-                return (
+    <div className="bg-black">
+      <div className="w-full py-20 px-4 md:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <p className="font-mono text-sm text-blue-400 mb-3">~/projects</p>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
+            {t("translation.home.projects.title")}
+          </h2>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {projects.map((project) => {
+              const Icon = project.icon;
+              const title = t(
+                `translation.home.projects.items.${project.translationKey}.title`,
+              );
+              const description = t(
+                `translation.home.projects.items.${project.translationKey}.description`,
+              );
+              const technologiesValue = t(
+                `translation.home.projects.items.${project.translationKey}.technologies`,
+                { returnObjects: true },
+              );
+              const technologies: string[] = Array.isArray(technologiesValue)
+                ? technologiesValue.map((tech) => String(tech))
+                : [];
+              const visibleTechnologies = technologies.slice(0, 3);
+              const extraTechCount =
+                technologies.length - visibleTechnologies.length;
+              return (
+                <div
+                  key={project.id}
+                  className="border border-zinc-800 bg-zinc-950 flex flex-col"
+                >
+                  {/* Cover art */}
                   <div
-                    key={project.id}
-                    className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-gray-800 dark:text-white w-full max-w-4xl shadow-sm border border-gray-200 dark:border-gray-600"
+                    className={`relative aspect-video w-full overflow-hidden border-b border-zinc-800 bg-gradient-to-br ${project.gradientClass} flex items-center justify-center`}
                   >
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                          {title}
-                        </h3>
-                        {project.isArchived && (
-                          <span className="flex items-center gap-1 px-2 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs font-medium rounded-md whitespace-nowrap">
-                            <FaArchive size={10} />
-                            {t("translation.home.projects.archived")}
-                          </span>
-                        )}
+                    <Icon
+                      size={72}
+                      className={`absolute -right-4 -bottom-5 opacity-10 ${project.iconClass}`}
+                    />
+                    <Icon
+                      size={28}
+                      className={`relative z-10 ${project.iconClass}`}
+                    />
+                  </div>
+
+                  <div className="p-4 flex flex-col flex-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-zinc-500">
+                        <span
+                          className={`inline-block w-1.5 h-1.5 ${project.dotClass}`}
+                        ></span>
+                        <span>{formatDate(project.lastUpdated)}</span>
                       </div>
-                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap sm:mt-1">
-                        <FaCalendarAlt className="mr-1" size={12} />
-                        <span>
-                          {t("translation.home.projects.lastUpdated")}{" "}
-                          {formatDate(project.lastUpdated)}
+                      {project.isArchived && (
+                        <span className="flex items-center gap-1 px-1.5 py-0.5 border border-zinc-700 text-zinc-400 text-[11px] font-medium whitespace-nowrap">
+                          <FaArchive size={9} />
+                          {t("translation.home.projects.archived")}
                         </span>
-                      </div>
+                      )}
                     </div>
-                    <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-4">
+
+                    <h3 className="text-sm font-semibold text-white mb-1.5 line-clamp-1">
+                      {title}
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed mb-3 line-clamp-2 flex-1">
                       {description}
                     </p>
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
-                        {technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="bg-white dark:bg-gray-800 px-3 py-1 rounded-md text-sm font-medium text-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-700"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {visibleTechnologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="border border-zinc-800 text-zinc-300 text-[11px] px-1.5 py-0.5"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {extraTechCount > 0 && (
+                        <span className="border border-zinc-800 text-zinc-500 text-[11px] px-1.5 py-0.5">
+                          +{extraTechCount}
+                        </span>
+                      )}
                     </div>
-                    <div className="flex justify-end space-x-4">
+
+                    <div className="flex items-center justify-end space-x-3 pt-3 border-t border-zinc-800">
                       {project.links.live && (
                         <a
                           href={project.links.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                          className="text-zinc-400 hover:text-white transition-colors"
                           title="Live Demo"
                         >
-                          <FaExternalLinkAlt size={18} />
+                          <FaExternalLinkAlt size={13} />
                         </a>
                       )}
                       {project.links.github && (
@@ -267,28 +324,28 @@ const Projects: React.FC = () => {
                           href={project.links.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                          className="text-zinc-400 hover:text-white transition-colors"
                           title="GitHub Repository"
                         >
-                          <FaGithub size={18} />
+                          <FaGithub size={15} />
                         </a>
                       )}
                       <button
                         onClick={() => copyToClipboard(project)}
-                        className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white transition-colors"
+                        className="text-zinc-400 hover:text-white transition-colors"
                         title="Copy Link"
                       >
                         {copiedProject === project.id ? (
-                          <FaCheck size={18} className="text-green-500" />
+                          <FaCheck size={13} className="text-emerald-400" />
                         ) : (
-                          <FaCopy size={18} />
+                          <FaCopy size={13} />
                         )}
                       </button>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
