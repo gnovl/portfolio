@@ -8,16 +8,17 @@
     },
     "home": {
       "paragraphs": {
-        "greeting": "Hey, I'm",
+        "eyebrow": "Fullstack Web Developer",
         "header": "GINO VARELA",
-        "description": "A fullstack web developer with growing expertise in backend technologies. I create and maintain comprehensive web solutions that balance server-side architecture with intuitive user experiences to deliver successful digital products."
+        "taglinePrefix": "I build ",
+        "taglineHighlight": "fast, scalable web applications",
+        "taglineSuffix": ", from backend to frontend."
       },
       "about": {
         "title": "About me",
         "introduction": "Hello, stranger! My name is Gino Varela and I was born in Chile. I studied and obtained my Higher Technical Certificate in Web Application Development in Spain. Exploring the hidden mechanisms behind websites and applications has always fascinated me—how everything runs smoothly in the background. I'd say that my hobby is the same as my occupation - that is to develop web applications.",
         "stack": {
           "title": "My Stack",
-          "description": "When developing projects, I use different technologies and programming languages to ensure the product meets the highest standards and satisfies both functional requirements and design aspirations.",
           "categories": {
             "languages": "Programming Languages",
             "frameworks": "Frameworks & Libraries",
@@ -117,7 +118,7 @@
         }
       },
       "contact": {
-        "title": "✉️ Get in touch",
+        "title": "Get in touch",
         "message": "Write your message and I'll get in touch with you within the next business day.",
         "labels": {
           "name": "Name",
@@ -153,7 +154,9 @@
         "successMessage": "Your message has been successfully submitted!"
       },
       "footer": {
-        "description": "Full Stack Web Developer building digital experiences with modern technologies.",
+        "description": "Personal portfolio showcasing my projects, skills and experience as a web developer.",
+        "status": "Available for new projects",
+        "navLabel": "navigation",
         "copyright": "All rights reserved.",
         "builtWith": "Built with React + TypeScript + Tailwind CSS"
       }

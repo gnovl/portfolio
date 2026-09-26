@@ -8,16 +8,17 @@
     },
     "home": {
       "paragraphs": {
-        "greeting": "Hola, soy",
+        "eyebrow": "Desarrollador Web Full-Stack",
         "header": "GINO VARELA",
-        "description": "Un desarrollador web fullstack con creciente experiencia en tecnologías backend. Creo y mantengo soluciones web integrales que equilibran la arquitectura del servidor con experiencias de usuario intuitivas para entregar productos digitales exitosos."
+        "taglinePrefix": "Desarrollo ",
+        "taglineHighlight": "aplicaciones web rápidas y escalables",
+        "taglineSuffix": ", del backend al frontend."
       },
       "about": {
         "title": "Sobre mí",
         "introduction": "¡Hola, extraño! Mi nombre es Gino Varela y nací en Chile. Estudié y obtuve mi Título Superior en Desarrollo de Aplicaciones Web en España. Explorar los mecanismos ocultos detrás de los sitios web y las aplicaciones siempre me ha fascinado: cómo todo funciona sin problemas en segundo plano. Diría que mi hobby es el mismo que mi ocupación: desarrollar aplicaciones web.",
         "stack": {
           "title": "Mi Stack",
-          "description": "Al desarrollar proyectos, utilizo diferentes tecnologías y lenguajes de programación para asegurar que el producto cumpla con los más altos estándares y satisfaga tanto los requisitos funcionales como las aspiraciones de diseño.",
           "categories": {
             "languages": "Lenguajes de Programación",
             "frameworks": "Frameworks y Librerías",
@@ -153,7 +154,9 @@
         "successMessage": "¡Mensaje enviado exitosamente!"
       },
       "footer": {
-        "description": "Desarrollador Web Full Stack creando experiencias digitales con tecnologías modernas.",
+        "description": "Portafolio personal con mis proyectos, habilidades y experiencia como desarrollador web.",
+        "status": "Disponible para nuevos proyectos",
+        "navLabel": "navegación",
         "copyright": "Todos los derechos reservados.",
         "builtWith": "Construido con React + TypeScript + Tailwind CSS"
       }
